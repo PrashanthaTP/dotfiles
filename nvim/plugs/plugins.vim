@@ -26,13 +26,17 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 Plug 'mhinz/vim-startify'
+
+"Plug 'jlanzarotta/bufexplorer'
+
 call plug#end()
 
 
 
 " UltiSnips ----- {{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger = '<f5>' "to aviod overlapping with coc mapping
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " }}}
@@ -52,11 +56,13 @@ let g:NERDTreeMinimalUI = 1 " hide helper
 let g:NERDTreeIgnore = ['^node_modules$'] " ignore node_modules to increase load speed 
 let g:NERDTreeStatusline = '' " set to empty to use lightline
 " " Toggle
-noremap <silent> <C-b> :NERDTreeToggle<CR>
+"noremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>y :NERDTreeFind<bar> :vertical resize 35<CR>
 " " Close window if NERDTree is the last one
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " " Map to open current file in NERDTree and set size
-nnoremap <leader>pv :NERDTreeFind<bar> :vertical resize 45<CR>
+"nnoremap <leader>pv :NERDTreeFind<bar> :vertical resize 45<CR>
 
 " NERDTree Syntax Highlight
 " " Enables folder icon highlighting using exact match
@@ -171,14 +177,13 @@ let g:lightline = {
       \ 'colorscheme': 'powerlineish',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],['readonly', 'filename', 'modified']],
-      \   'right' : [['cocstatus', 'currentfunction'],['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
+      \   'right' : [['cocstatus', 'currentfunction'],['lineinfo'], ['percent'],['filetype','fileformat','fileencoding']]
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
       \   'currentfunction': 'CocCurrentFunction'
+      \ },
       \ }
-      \ }
-
 " }}}
 "
 " vim-startify ----- {{{

@@ -3,6 +3,7 @@ set mouse=a
 " CLIPBOARD ----- {{{
 "vim clipboard and system clipboard same now
 set clipboard^=unnamed 
+set autochdir
 " }}}
 
 
@@ -15,6 +16,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set number relativenumber
+" Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39 
+"set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
+"set list
 " }}}
 "
 
@@ -85,3 +89,8 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 " }}}
+" " show tabline
+" set showtabline=2
+" if has('gui_running')
+	" set guioptions-=e
+" endif
