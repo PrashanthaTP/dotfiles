@@ -53,7 +53,7 @@ if (has("termguicolors"))
 endif
 set background=dark
 colorscheme gruvbox
-
+au Colorscheme gruvbox :hi Keyword gui=italic cterm=italic
 " }}}
 
 " NERDTree ----- {{{
