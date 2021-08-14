@@ -18,5 +18,17 @@
   //"diagnostic.enableMessage": "jump",
   "jedi.hover.enable": true,
   "hover.target": "float",
-  "clangd.path": "C:\\Users\\Prashanth T P\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\12.0.1\\clangd_12.0.1\\bin\\clangd.exe"
+  "clangd.path": "C:\\Users\\Prashanth T P\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\12.0.1\\clangd_12.0.1\\bin\\clangd.exe",
+  //html
+  "html.autoClosingTags": true,
+  "html.filetypes": ["html", "javascript", "handlebars", "htmldjango", "blade"],
+  "html.enable": true,
+  "snippets.extends": {
+
+  "cpp": ["c"],
+  "javascript":["html"],
+  "javascriptreact": ["javascript"],
+  "typescript": ["javascript"]
+  }
+
 }
