@@ -9,6 +9,9 @@ set autochdir
 
 " EDITOR ----- {{{
 syntax on
+" filetype on
+" filetype plugin on
+" filetype indent on
 set ignorecase
 set smartcase
 " use 4 spaces for tabs
@@ -38,8 +41,8 @@ set foldmethod=marker
 " remember foldings
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter *.* silent! loadview
 augroup END
 " }}}
 
@@ -85,7 +88,7 @@ set cmdheight=2
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
-
+set ttimeoutlen=0
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 " }}}
