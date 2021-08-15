@@ -1,5 +1,5 @@
-call plug#begin("$VIM/nvim/plugged") 
-
+" plugins ----- {{{
+call plug#begin("$VIM/nvim/plugged")
 Plug 'morhetz/gruvbox'
 
 Plug 'preservim/nerdtree'
@@ -25,7 +25,7 @@ Plug 'preservim/nerdcommenter'
 
 Plug 'tpope/vim-surround'
 
-Plug 'mhinz/vim-startify'
+"Plug 'mhinz/vim-startify'
 
 "Plug 'jlanzarotta/bufexplorer'
 " If you have nodejs and yarn
@@ -36,6 +36,7 @@ Plug 'mhinz/vim-startify'
 " see: https://github.com/iamcco/markdown-preview.nvim/issues/50
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
+" }}}
 
 
 
@@ -59,7 +60,7 @@ au Colorscheme gruvbox :hi Keyword gui=italic cterm=italic
 " NERDTree ----- {{{
 let g:NERDTreeShowHidden = 1 
 let g:NERDTreeMinimalUI = 1 " hide helper
-let g:NERDTreeIgnore = ['^node_modules$'] " ignore node_modules to increase load speed 
+let g:NERDTreeIgnore = ['^node_modules$','\.git$', '\.idea$', '\.vscode$', '\.history$'] " ignore node_modules to increase load speed 
 let g:NERDTreeStatusline = '' " set to empty to use lightline
 " " Toggle
 "noremap <silent> <C-b> :NERDTreeToggle<CR>
