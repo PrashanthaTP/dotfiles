@@ -11,4 +11,6 @@ source $LOCALAPPDATA/nvim/languages/languages.vim
 hi Normal ctermbg=none guibg=none
 "wrap backspace 
 set backspace=indent,eol,start
+hi Comment gui=italic cterm=italic
+hi htmlArg gui=italic cterm=italic
 
