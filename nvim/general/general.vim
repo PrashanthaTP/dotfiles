@@ -2,7 +2,7 @@
 set mouse=a
 " CLIPBOARD ----- {{{
 "vim clipboard and system clipboard same now
-set clipboard^=unnamed 
+set clipboard^=unnamed
 set autochdir
 " }}}
 
@@ -19,7 +19,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set number relativenumber
-" Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39 
+set scrolloff=8
+set colorcolumn=80
+" Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39
 "set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
 "set list
 " }}}
@@ -27,8 +29,10 @@ set number relativenumber
 
 " SEARCHING ----- {{{
 set nohlsearch
+set incsearch "on by default"
 " clear last used search pattern:http://vimdoc.sourceforge.net/htmldoc/pattern.html#last-pattern
-let @/="" 
+"
+let @/=""
 " }}}
 
 " FOLDING ----- {{{
@@ -97,3 +101,4 @@ set shortmess+=c
 " if has('gui_running')
 	" set guioptions-=e
 " endif
+
