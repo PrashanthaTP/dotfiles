@@ -6,10 +6,16 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
-augroup TRIM_WHITESPAC
+augroup TRIM_WHITESPACE
 	autocmd!
-	autocmd BufWritePre * if !&binary && &ft !=# 'mail' 
+	autocmd BufWritePre * if !&binary && &ft !=# 'mail'
                    \|   call TrimWhitespace()
                    \| endif
 augroup END
 " }}}
+"
+augroup REMEMBER_FOLDS
+	autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter *.* silent! loadview
+augroup END
