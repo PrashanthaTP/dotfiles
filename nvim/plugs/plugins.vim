@@ -1,7 +1,7 @@
 " plugins ----- {{{
 call plug#begin("$VIM/nvim/plugged")
-Plug 'morhetz/gruvbox'
-
+" Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-fugitive'
@@ -38,8 +38,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 call plug#end()
 " }}}
 
-
-
 " UltiSnips ----- {{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 "let g:UltiSnipsExpandTrigger="<tab>"
@@ -53,8 +51,19 @@ if (has("termguicolors"))
  set termguicolors
 endif
 set background=dark
-colorscheme gruvbox
-au Colorscheme gruvbox :hi Keyword gui=italic cterm=italic
+" colorscheme gruvbox
+" au Colorscheme gruvbox :hi Keyword gui=italic cterm=italic
+"https://github.com/sainnhe/gruvbox-material/blob/master/doc/gruvbox-material.txt
+"soft,medium,hard
+"let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_transparent_background = 1
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_statusline_style = 'original'
+let g:gruvbox_material_diagnostic_virtual_text = 'colored'
+let g:gruvbox_material_better_performance = 1
+"configuration must be dont before applying colorscheme
+colorscheme gruvbox-material
 " }}}
 
 " NERDTree ----- {{{
@@ -171,35 +180,6 @@ nmap <C-_> <plug>NERDCommenterToggle
 
 " }}}
 
-" lightline ----- {{{
-" Lightline
-"let g:lightline = {
-  ""\     'colorscheme': 'powerlineish',
-  ""\     'active': {
-  ""\         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
-  ""\         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
-  \     }
-  \ }
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-		  \   'left': [ [ 'mode', 'paste' ],['readonly', 'filename', 'modified','fugitive']],
-      \   'right' : [['cocstatus', 'currentfunction'],['lineinfo'], ['percent'],['filetype','fileencoding']]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction',
-	  \'fugitive':'MyFugitive'
-      \ },
-    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-      \ }
-" }}}
-function! MyFugitive()
-	" return  fugitive#statusline()
-return FugitiveHead()
-  return ''
-endfunction
 " vim-startify ----- {{{
 "let g:startify_custom_header += [
     ""\'████████╗██████╗ ██████╗ ',
