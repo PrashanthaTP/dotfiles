@@ -1,4 +1,5 @@
 let mapleader = "\<Space>"
+
 source $LOCALAPPDATA/nvim/general/augroups.vim
 source $LOCALAPPDATA/nvim/plugs/plugins.vim
 source $LOCALAPPDATA/nvim/plugs/coc.vim
@@ -27,12 +28,19 @@ hi htmlArg gui=italic cterm=italic
 if &term =~ '^xterm'
 " normal mode
 let &t_EI .= "\<Esc>[1 q"
+
+let &t_SR.="\e[4 q"
 " insert mode
 let &t_SI .= "\<Esc>[6 q"
 endif
 "
-autocmd VimEnter * silent! echo -ne "\e[1 q"
-autocmd VimLeave * silent! echo -ne "\e[6 q"
+augroup CURSOR_MANAGEMENT
+	autocmd!
+	autocmd VimEnter * silent !echo  -ne "\e[2 q"
+	autocmd VimLeave * silent !echo -ne  "\e[6 q"
+" autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
+" autocmd VimLeave * let &t_SI.="\<Esc>[6 q"
+augroup END
 " }}}
 
 
