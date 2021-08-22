@@ -26,21 +26,14 @@ hi htmlArg gui=italic cterm=italic
 " 5 -> blinking vertical bar
 " 6 -> solid vertical bar
 if &term =~ '^xterm'
-" normal mode
+" normal mode ||
 let &t_EI .= "\<Esc>[1 q"
-
+" replace mode _
 let &t_SR.="\e[4 q"
-" insert mode
+" insert mode |
 let &t_SI .= "\<Esc>[6 q"
 endif
 "
-augroup CURSOR_MANAGEMENT
-	autocmd!
-	autocmd VimEnter * silent !echo  -ne "\e[2 q"
-	autocmd VimLeave * silent !echo -ne  "\e[6 q"
-" autocmd VimLeave * let &t_me="\<Esc>]50;CursorShape=1\x7"
-" autocmd VimLeave * let &t_SI.="\<Esc>[6 q"
-augroup END
 " }}}
 
 
