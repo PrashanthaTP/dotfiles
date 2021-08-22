@@ -1,6 +1,6 @@
 " plugins ----- {{{
 call plug#begin("$VIM/nvim/plugged")
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -59,7 +59,7 @@ set background=dark
 let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
-let g:gruvbox_material_statusline_style = 'original'
+"let g:gruvbox_material_statusline_style = 'original'
 let g:gruvbox_material_diagnostic_virtual_text = 'colored'
 let g:gruvbox_material_better_performance = 1
 "configuration must be dont before applying colorscheme
@@ -68,7 +68,7 @@ colorscheme gruvbox-material
 
 " NERDTree ----- {{{
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1 " hide helper
+let g:NERDTreeMinimalUI = 0 " hide helper
 let g:NERDTreeIgnore = ['^node_modules$','\.git$', '\.idea$', '\.vscode$', '\.history$'] " ignore node_modules to increase load speed
 let g:NERDTreeStatusline = '' " set to empty to use lightline
 " " Toggle
