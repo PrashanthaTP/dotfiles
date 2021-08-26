@@ -4,12 +4,14 @@ source $LOCALAPPDATA/nvim/general/augroups.vim
 source $LOCALAPPDATA/nvim/plugs/plugins.vim
 source $LOCALAPPDATA/nvim/plugs/coc.vim
 source $LOCALAPPDATA/nvim/plugs/lightline_v1.vim
+source $LOCALAPPDATA/nvim/plugs/telescope_plug.vim
+source $LOCALAPPDATA/nvim/plugs/firenvim.vim
 source $LOCALAPPDATA/nvim/plugs/markdown.vim
 source $LOCALAPPDATA/nvim/general/general.vim
 source $LOCALAPPDATA/nvim/general/leader.vim
 source $LOCALAPPDATA/nvim/general/keybindings.vim
 source $LOCALAPPDATA/nvim/languages/languages.vim
-"set path+=*
+"set path+=**
 hi Normal ctermbg=none guibg=none
 "wrap backspace
 set backspace=indent,eol,start
