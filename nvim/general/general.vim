@@ -4,6 +4,8 @@ set mouse=a
 "vim clipboard and system clipboard same now
 set clipboard^=unnamed
 
+"wrap backspace
+set backspace=indent,eol,start
 "https://stackoverflow.com/a/53872985/12988588
 "dont save character deleted using `x`
 "send it to The blackhole-register
