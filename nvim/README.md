@@ -10,6 +10,8 @@ My setup for various applications.
 
 - `:CocCommand clangd.install ` (make sure clangd path is added to `:CocConfig`)
 - `:CocInstall coc-clangd coc-css coc-emmet coc-eslint coc-html coc-java coc-jedi coc-json coc-lua coc-pairs coc-prettier coc-pyright coc-snippets coc-tsserver coc-vimlsp `
+- quick tip :
+  you can move to floating window using `C-w` commands
 
 ### Firenvim
 
