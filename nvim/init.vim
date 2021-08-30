@@ -1,8 +1,8 @@
 let mapleader = "\<Space>"
 
 source $LOCALAPPDATA/nvim/general/augroups.vim
-
 source $LOCALAPPDATA/nvim/plugs/plugins.vim
+source $LOCALAPPDATA/nvim/general/colorscheme_settings.vim
 source $LOCALAPPDATA/nvim/plugs/coc.vim
 source $LOCALAPPDATA/nvim/plugs/lightline_v1.vim
 source $LOCALAPPDATA/nvim/plugs/telescope_plug.vim
@@ -15,6 +15,9 @@ source $LOCALAPPDATA/nvim/general/leader.vim
 source $LOCALAPPDATA/nvim/general/keybindings.vim
 
 source $LOCALAPPDATA/nvim/languages/languages.vim
+
+source $LOCALAPPDATA/nvim/general/git.vim
+
 "set path+=**
 hi Normal ctermbg=none guibg=none
 hi Comment gui=italic cterm=italic
