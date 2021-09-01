@@ -2,7 +2,15 @@
 set mouse=a
 " CLIPBOARD ----- {{{
 "vim clipboard and system clipboard same now
-set clipboard^=unnamed 
+set clipboard^=unnamed
+
+"wrap backspace
+set backspace=indent,eol,start
+"https://stackoverflow.com/a/53872985/12988588
+"dont save character deleted using `x`
+"send it to The blackhole-register
+nnoremap x "_x
+
 set autochdir
 " }}}
 
@@ -19,7 +27,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set number relativenumber
-" Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39 
+set scrolloff=8
+"set colorcolumn=80
+" Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39
 "set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
 "set list
 " }}}
@@ -27,8 +37,10 @@ set number relativenumber
 
 " SEARCHING ----- {{{
 set nohlsearch
+set incsearch "on by default"
 " clear last used search pattern:http://vimdoc.sourceforge.net/htmldoc/pattern.html#last-pattern
-let @/="" 
+"
+let @/=""
 " }}}
 
 " FOLDING ----- {{{
@@ -38,12 +50,7 @@ set foldmethod=marker
 " }}}
 
 " BUFFERS ----- {{{
-" remember foldings
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave *.* mkview
-  autocmd BufWinEnter *.* silent! loadview
-augroup END
+" remember foldings is nvim/general/augroups.vim
 " }}}
 
 " SPLITS ----- {{{
@@ -56,7 +63,7 @@ nnoremap <C-H> <C-W><C-H>
 
 "}}}
 
-" wildmenu ----- {{{
+
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
 set wildmenu
@@ -97,3 +104,4 @@ set shortmess+=c
 " if has('gui_running')
 	" set guioptions-=e
 " endif
+

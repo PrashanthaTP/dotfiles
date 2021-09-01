@@ -1,28 +1,24 @@
 " plugins ----- {{{
 call plug#begin("$VIM/nvim/plugged")
 Plug 'morhetz/gruvbox'
-
+Plug 'sainnhe/gruvbox-material'
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
-
 " Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
-
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-
 Plug 'itchyny/lightline.vim'
-
 Plug 'preservim/nerdcommenter'
-
 Plug 'tpope/vim-surround'
 
 "Plug 'mhinz/vim-startify'
@@ -35,10 +31,12 @@ Plug 'tpope/vim-surround'
 " use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
 " see: https://github.com/iamcco/markdown-preview.nvim/issues/50
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()
 " }}}
-
-
 
 " UltiSnips ----- {{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -48,19 +46,10 @@ let g:UltiSnipsExpandTrigger = '<f5>' "to aviod overlapping with coc mapping
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " }}}
 
-" gruvbox ----- {{{
-if (has("termguicolors"))
- set termguicolors
-endif
-set background=dark
-colorscheme gruvbox
-au Colorscheme gruvbox :hi Keyword gui=italic cterm=italic
-" }}}
-
 " NERDTree ----- {{{
-let g:NERDTreeShowHidden = 1 
-let g:NERDTreeMinimalUI = 1 " hide helper
-let g:NERDTreeIgnore = ['^node_modules$','\.git$', '\.idea$', '\.vscode$', '\.history$'] " ignore node_modules to increase load speed 
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 0 " hide helper
+let g:NERDTreeIgnore = ['^node_modules$','\.git$', '\.idea$', '\.vscode$', '\.history$'] " ignore node_modules to increase load speed
 let g:NERDTreeStatusline = '' " set to empty to use lightline
 " " Toggle
 "noremap <silent> <C-b> :NERDTreeToggle<CR>
@@ -73,9 +62,9 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " NERDTree Syntax Highlight
 " " Enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFolders = 1 
+let g:NERDTreeHighlightFolders = 1
 " " Highlights the folder name
-let g:NERDTreeHighlightFoldersFullName = 1 
+let g:NERDTreeHighlightFoldersFullName = 1
 " " Color customization
 let s:brown = "905532"
 let s:aqua =  "3AFFDB"
@@ -96,21 +85,21 @@ let s:white = "FFFFFF"
 let s:rspec_red = 'FE405F'
 let s:git_orange = 'F54D27'
 " " This line is needed to avoid error
-let g:NERDTreeExtensionHighlightColor = {} 
+let g:NERDTreeExtensionHighlightColor = {}
 " " Sets the color of css files to blue
-let g:NERDTreeExtensionHighlightColor['css'] = s:blue 
+let g:NERDTreeExtensionHighlightColor['css'] = s:blue
 " " This line is needed to avoid error
-let g:NERDTreeExactMatchHighlightColor = {} 
+let g:NERDTreeExactMatchHighlightColor = {}
 " " Sets the color for .gitignore files
-let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange 
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange
 " " This line is needed to avoid error
-let g:NERDTreePatternMatchHighlightColor = {} 
+let g:NERDTreePatternMatchHighlightColor = {}
 " " Sets the color for files ending with _spec.rb
-let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red 
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red
 " " Sets the color for folders that did not match any rule
-let g:WebDevIconsDefaultFolderSymbolColor = s:beige 
+let g:WebDevIconsDefaultFolderSymbolColor = s:beige
 " " Sets the color for files that did not match any rule
-let g:WebDevIconsDefaultFileSymbolColor = s:blue 
+let g:WebDevIconsDefaultFileSymbolColor = s:blue
 
 " NERDTree Git Plugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {
@@ -128,7 +117,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 " }}}
 
 " SUPPRESS WARNINGS ----- {{{
-"autocmd VimEnter * unlet g:NERDTreeUpdateOnCursorHold 
+"autocmd VimEnter * unlet g:NERDTreeUpdateOnCursorHold
 "autocmd VimEnter * unlet g:NERDTreeIndicatorMapCustom
 " }}}
 
@@ -154,7 +143,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 " " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-" " Map ++ to call NERD Commenter and use iTerm key bindings 
+" " Map ++ to call NERD Commenter and use iTerm key bindings
 " " to bind Ctmd+/ to ++
 vmap <C-_> <plug>NERDCommenterToggle
 nmap <C-_> <plug>NERDCommenterToggle
@@ -171,28 +160,6 @@ nmap <C-_> <plug>NERDCommenterToggle
 
 " }}}
 
-" lightline ----- {{{
-" Lightline
-"let g:lightline = {
-  ""\     'colorscheme': 'powerlineish',
-  ""\     'active': {
-  ""\         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
-  ""\         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
-  \     }
-  \ }
-let g:lightline = {
-      \ 'colorscheme': 'powerlineish',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],['readonly', 'filename', 'modified']],
-      \   'right' : [['cocstatus', 'currentfunction'],['lineinfo'], ['percent'],['filetype','fileformat','fileencoding']]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
-      \ },
-      \ }
-" }}}
-"
 " vim-startify ----- {{{
 "let g:startify_custom_header += [
     ""\'████████╗██████╗ ██████╗ ',
