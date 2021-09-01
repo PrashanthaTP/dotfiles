@@ -6,26 +6,19 @@ Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
-
 " Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-
 Plug 'itchyny/lightline.vim'
-
 Plug 'preservim/nerdcommenter'
-
 Plug 'tpope/vim-surround'
 
 "Plug 'mhinz/vim-startify'

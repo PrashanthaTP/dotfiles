@@ -5,7 +5,7 @@ inoremap jk <ESC>
 
 " yanking  ----- {{{
 "to match the behaviour of 'C' and 'D'
-nnoremap Y y$ 
+nnoremap Y y$
 "highlight the yanked area for an extened period
 augroup highlight_yank
     autocmd!
@@ -22,7 +22,7 @@ nnoremap N Nzz
 "
 " breakpoints ----- {{{
 "puts the next line at the end of current line : mz = create a mark called z , do J, `z = goto mark z
-nnoremap J mzJ`z 
+nnoremap J mzJ`z
 "undo breakpoints
 inoremap . .<C-g>u
 inoremap , ,<C-g>u
@@ -31,7 +31,7 @@ inoremap ? ?<C-g>u
 " }}}
 "
 " moving lines with ALT key ----- {{{
-"https://vim.fandom.com/wiki/Moving_lines_up_or_down 
+"https://vim.fandom.com/wiki/Moving_lines_up_or_down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
