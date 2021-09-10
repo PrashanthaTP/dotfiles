@@ -6,8 +6,10 @@ source $LOCALAPPDATA/nvim/general/colorscheme_settings.vim
 source $LOCALAPPDATA/nvim/plugs/coc.vim
 source $LOCALAPPDATA/nvim/plugs/lightline_v1.vim
 source $LOCALAPPDATA/nvim/plugs/telescope_plug.vim
+source $LOCALAPPDATA/nvim/plugs/nerdtree.vim
 source $LOCALAPPDATA/nvim/plugs/firenvim.vim
 source $LOCALAPPDATA/nvim/plugs/markdown.vim
+source $LOCALAPPDATA/nvim/plugs/vimwiki.vim
 
 source $LOCALAPPDATA/nvim/general/cursor.vim
 source $LOCALAPPDATA/nvim/general/general.vim
@@ -17,6 +19,9 @@ source $LOCALAPPDATA/nvim/general/keybindings.vim
 source $LOCALAPPDATA/nvim/languages/languages.vim
 
 source $LOCALAPPDATA/nvim/general/git.vim
+
+source $LOCALAPPDATA/nvim/helpers/commands.vim
+
 
 "set path+=**
 hi Normal ctermbg=none guibg=none
