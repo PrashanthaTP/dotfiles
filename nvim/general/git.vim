@@ -23,5 +23,5 @@ endif
 augroup GITCOMMIT_SETTINGS
 	"https://vi.stackexchange.com/questions/4343/can-i-detect-whether-current-vim-instance-is-launched-by-git
 	autocmd!
-	autocmd FileType gitcommit silent :call Set_git_settings()
+	autocmd FileType gitcommit,gitrebase silent :call Set_git_settings()
 augroup END

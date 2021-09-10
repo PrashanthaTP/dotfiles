@@ -18,7 +18,7 @@ let g:gruvbox_material_better_performance = 1
 "configuration must be dont before applying colorscheme
 "
 "if &filetype!='gitcommit'
-colorscheme gruvbox-material
+colorscheme gruvbox
 "endif
 
 " }}}
