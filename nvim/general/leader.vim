@@ -8,7 +8,7 @@ nnoremap <leader>p :bprev<CR>
 nnoremap <leader>b :buffers<CR>
 
 " splits ----- {{{
-nnoremap <leader>w <C-W>w
+"nnoremap <leader>w <C-W>w "removed to support vimwiki
 nnoremap <leader>h <C-W>h
 nnoremap <leader>l <C-W>l
 nnoremap <leader>j <C-W>j
