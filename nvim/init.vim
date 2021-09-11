@@ -12,6 +12,7 @@ source $LOCALAPPDATA/nvim/plugs/ale.vim
 source $LOCALAPPDATA/nvim/plugs/coc.vim
 source $LOCALAPPDATA/nvim/plugs/firenvim.vim
 source $LOCALAPPDATA/nvim/plugs/fzf.vim
+source $LOCALAPPDATA/nvim/plugs/goyo.vim
 source $LOCALAPPDATA/nvim/plugs/lightline_v1.vim
 source $LOCALAPPDATA/nvim/plugs/markdown.vim
 source $LOCALAPPDATA/nvim/plugs/nerdtree.vim
