@@ -15,3 +15,5 @@ nmap <leader>wl <Plug>VimwikiFollowLink
 nnoremap <leader>wc :VimwikiAll2HTML<CR>
 "use this to get back <TAB> functionality in markdown files
 let g:vimwiki_key_mappings = { 'table_mappings': 0 }
+let g:vimwiki_url_maxsave=0
+let g:vimwiki_conceallevel=0
