@@ -1,16 +1,26 @@
 let mapleader = "\<Space>"
 
 source $LOCALAPPDATA/nvim/general/augroups.vim
-source $LOCALAPPDATA/nvim/plugs/plugins.vim
-source $LOCALAPPDATA/nvim/general/colorscheme_settings.vim
-source $LOCALAPPDATA/nvim/plugs/coc.vim
-source $LOCALAPPDATA/nvim/plugs/lightline_v1.vim
-source $LOCALAPPDATA/nvim/plugs/telescope_plug.vim
-source $LOCALAPPDATA/nvim/plugs/nerdtree.vim
-source $LOCALAPPDATA/nvim/plugs/firenvim.vim
-source $LOCALAPPDATA/nvim/plugs/markdown.vim
-source $LOCALAPPDATA/nvim/plugs/vimwiki.vim
 
+"====================================================="
+" plugins ----- {{{
+source $LOCALAPPDATA/nvim/plugs/plugins.vim
+
+source $LOCALAPPDATA/nvim/general/colorscheme_settings.vim
+
+source $LOCALAPPDATA/nvim/plugs/ale.vim
+source $LOCALAPPDATA/nvim/plugs/coc.vim
+source $LOCALAPPDATA/nvim/plugs/firenvim.vim
+source $LOCALAPPDATA/nvim/plugs/fzf.vim
+source $LOCALAPPDATA/nvim/plugs/lightline_v1.vim
+source $LOCALAPPDATA/nvim/plugs/markdown.vim
+source $LOCALAPPDATA/nvim/plugs/nerdtree.vim
+source $LOCALAPPDATA/nvim/plugs/telescope_plug.vim
+source $LOCALAPPDATA/nvim/plugs/ultisnips.vim
+source $LOCALAPPDATA/nvim/plugs/vimwiki.vim
+source $LOCALAPPDATA/nvim/plugs/vimstartify.vim
+" }}}
+"====================================================="
 source $LOCALAPPDATA/nvim/general/cursor.vim
 source $LOCALAPPDATA/nvim/general/general.vim
 source $LOCALAPPDATA/nvim/general/leader.vim
