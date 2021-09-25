@@ -4,6 +4,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 set background=dark
+set t_Co=256
 " colorscheme gruvbox
 " au Colorscheme gruvbox :hi Keyword gui=italic cterm=italic
 "https://github.com/sainnhe/gruvbox-material/blob/master/doc/gruvbox-material.txt
@@ -18,6 +19,12 @@ let g:gruvbox_material_better_performance = 1
 "configuration must be dont before applying colorscheme
 "
 "if &filetype!='gitcommit'
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_bold=1
+let g:gruvbox_italic=1
+
+
+
 colorscheme gruvbox
 "endif
 
