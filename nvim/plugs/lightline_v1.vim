@@ -6,7 +6,7 @@
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
-		  \   'left': [ [ 'mode', 'paste' ],['readonly', 'filename', 'modified','fugitive']],
+		  \   'left': [ [ 'mode', 'paste' ],['readonly', 'modified','fugitive']],
       \   'right' : [['cocstatus', 'currentfunction'],['lineinfo'], ['percent'],['filetype','fileencoding']]
       \ },
       \ 'component_function': {

@@ -6,7 +6,10 @@ let g:vimwiki_list = [{
                     \ 'syntax': 'markdown',
 					\ 'ext': '.md',
 					\'template_default':'markdown',
-					\'template_path':s:vimwiki_root ."/template/"
+					\'template_path':s:vimwiki_root ."/template/",
+					 \ 'links_space_char': '_',
+					 \'diary_rel_path' : './diary',
+					 \ 'markdown_toc' : 1
 					\}]
 let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_hl_headers = 1
