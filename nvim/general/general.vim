@@ -11,12 +11,14 @@ set backspace=indent,eol,start
 "send it to The blackhole-register
 nnoremap x "_x
 
-set autochdir
+"set autochdir
 " }}}
 
 
 " EDITOR ----- {{{
 syntax on
+set conceallevel=0
+
 " filetype on
 " filetype plugin on
 " filetype indent on
@@ -28,6 +30,8 @@ set softtabstop=4
 set shiftwidth=4
 set number relativenumber
 set scrolloff=8
+set showtabline=2
+set lazyredraw
 "set colorcolumn=80
 " Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39
 "set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
