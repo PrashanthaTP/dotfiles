@@ -1,0 +1,21 @@
+# set TERM=xterm-256color
+set colored-stats On
+# Append char to indicate type
+set visible-stats On
+#set EDITOR=nvim
+set completion-ignore-case on
+set bell-style none
+set editing-mode vi
+set show-mode-in-prompt on
+# $if term="linux"
+	# set vi-ins-mode-string \1\e[?0c\2
+	# set vi-cmd-mode-string \1\e[?8c\2
+# $else
+ set vi-ins-mode-string "\1\e[6 q\2"
+# set vi-cmd-mode-string "\1\e[2 q\2 cmd"
+#set vi-cmd-mode-string \1\e[0 q\2
+# $endif
+
+set keymap vi-insert
+"jk": vi-movement-mode
+
