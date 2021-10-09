@@ -12,7 +12,7 @@ Invoke-Expression (oh-my-posh --init --shell pwsh --config "C://Users//Prashanth
 $env:LC_ALL='C.UTF-8'
 #$env:TERM='xterm-256color'
 function configfiles_fn{
-	git --git-dir=D:/dotfiles/dotfiles --work-tree=$env:LOCALAPPDATA $args
+	git --git-dir=D:/dotfiles/dotfiles --work-tree=$HOME $args
 	}
 set-alias -name configfiles -value configfiles_fn
 ##########################################################################
