@@ -6,6 +6,10 @@ inoremap jk <ESC>
 " yanking  ----- {{{
 "to match the behaviour of 'C' and 'D'
 nnoremap Y y$
+"replace with yanked word
+"https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text
+nnoremap S "_diwP
+vnoremap S "_d"0P
 "highlight the yanked area for an extened period
 augroup highlight_yank
     autocmd!

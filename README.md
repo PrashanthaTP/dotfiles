@@ -17,3 +17,8 @@ My favourites
 - Operator Mono
 - Fira Code
 - Source Code Pro
+
+
+## Warnings ⚠
+
+- Powershell profile has hardcoded paths.Please verify once before using it.

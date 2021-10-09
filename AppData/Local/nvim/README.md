@@ -1,21 +1,20 @@
-# My Dotfiles ![](https://img.shields.io/badge/config%20for-nvim-blue?style=for-the-badge)
+# [![Nvim](https://img.shields.io/badge/config%20for-vim-blue?style=for-the-badge)](https://neovim.io/)
 
 ---
 
-My setup for various applications.
+## Neovim :rocket:
 
-## nvim :rocket:
-
-### COC : Conquer of Completion
+### Plugins
+#### 1. COC : Conquer of Completion
 
 - `:CocCommand clangd.install ` (make sure clangd path is added to `:CocConfig`)
 - `:CocInstall coc-clangd coc-css coc-emmet coc-eslint coc-html coc-java coc-jedi coc-json coc-lua coc-pairs coc-prettier coc-pyright coc-snippets coc-tsserver coc-vimlsp `
 - quick tip :
   you can move to floating window using `C-w` commands
 
-### Firenvim
+#### 2. Firenvim
 
-#### Installation
+##### Installation
 
 - first follow installation instruction here : https://github.com/glacambre/firenvim
 - to setup config jsons run
