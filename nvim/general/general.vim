@@ -40,8 +40,8 @@ set lazyredraw
 "
 
 " SEARCHING ----- {{{
-set nohlsearch
 set incsearch "on by default"
+set nohlsearch
 " clear last used search pattern:http://vimdoc.sourceforge.net/htmldoc/pattern.html#last-pattern
 "
 let @/=""

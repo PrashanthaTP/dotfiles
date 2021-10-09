@@ -1,14 +1,16 @@
+let s:NVIM = "D:/applications/nvim"
+let s:PLUGIN_DIR = s:NVIM."/nvim/plugged"
 " plugins ----- {{{
-call plug#begin("$VIM/nvim/plugged")
+call plug#begin(s:PLUGIN_DIR)
 	"https://github.com/junegunn/vim-plug#plug-options
 	Plug 'morhetz/gruvbox'
 	"Plug 'sainnhe/gruvbox-material'
 	" NERD tree will be loaded on the first invocation of NERDTreeToggle command"
-	"Plug 'preservim/nerdtree',{ 'on': 'NERDTreeToggle'}
+	Plug 'preservim/nerdtree',{ 'on': 'NERDTreeToggle'}
 	"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
-	"Plug 'ryanoasis/vim-devicons'
+	Plug 'ryanoasis/vim-devicons'
 	" Track the engine.
 	Plug 'SirVer/ultisnips'
 	" Snippets are separated from the engine. Add this if you want them:
