@@ -1,0 +1,9 @@
+let mapleader="\<Space>"
+source $HOME/.vim/general/augroups.vim
+source $HOME/.vim/general/general.vim
+source $HOME/.vim/general/cursor.vim
+source $HOME/.vim/general/keybindings.vim
+source $HOME/.vim/general/leader.vim
+
+hi CursorLine ctermbg=237 guibg=grey cterm=NONE
+hi CursorLineNr ctermbg=237 guibg=grey cterm=NONE
