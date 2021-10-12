@@ -1,7 +1,7 @@
 " Mappings with leader key
 " source vim file
-nmap <leader>sv :source $MYVIMRC<CR>
-nmap <leader>so :e $MYVIMRC<CR>
+nmap <leader>vs :source $MYVIMRC<CR>
+nmap <leader>vo :e $MYVIMRC<CR>
 " nmap <leader>so :vsplit <bar> :e $LOCALAPPDATA/nvim/init.vim<CR>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprev<CR>
