@@ -33,6 +33,7 @@ set number relativenumber
 set scrolloff=8
 set showtabline=2
 set lazyredraw
+set scrolloff=999
 "set colorcolumn=80
 " Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39
 "set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
