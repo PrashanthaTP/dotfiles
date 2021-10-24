@@ -1,7 +1,7 @@
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 #export TERM=xterm-256color
-VISUAL=nvim
-EDITOR=nvim
+VISUAL=vim
+EDITOR=vim
 HISTSIZE=1000
 HISTFILESIZE=2000
 parse_git_branch() {
