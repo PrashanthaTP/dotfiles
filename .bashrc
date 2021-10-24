@@ -18,3 +18,17 @@ alias configfiles='git --git-dir="D:\dotfiles\dotfiles" --work-tree="$HOME"'
 #############################################################################
 #https://gist.github.com/justintv/168835#gistcomment-2711710
 
+################
+# ZSH
+# https://gist.github.com/fworks/af4c896c9de47d827d4caa6fd7154b6b
+################
+# Launch Zsh
+#if [ -t 1 ]; then
+#exec zsh-5.8
+#fi
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  #tmux a -t default || exec tmux new -s default && exit;
+  #-A : attach to 'default' session if already exists
+  #-s : session name
+  exec tmux new-session -A -s default ;
+fi
