@@ -23,4 +23,4 @@ My favourites
 
 ## Warnings ⚠
 
-- Powershell profile has hardcoded paths.Please verify once before using it.
+- Many files have hardcoded paths.Please verify once before using it.
