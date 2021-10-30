@@ -1,34 +1,47 @@
+#############################################################################
+# ┌────────────────────┐
+# │       BASHRC       │
+# └────────────────────┘
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 #export TERM=xterm-256color
 VISUAL=vim
 EDITOR=vim
 HISTSIZE=1000
 HISTFILESIZE=2000
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
 
-# export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
-#export PS1="\[\033[35m\]\u@\[\033[32m\]\h \[\033[33m\]\w \[\033[91m\]\$(parse_git_branch)\[\033[00m\]$ "
-# PROMPT_COMMAND='echo -e "\e[?16;0;200c"'
-alias configfiles='git --git-dir="D:\dotfiles\dotfiles" --work-tree="$HOME"'
-################################################################################################################
-# export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \w\[\033[0;32m\]$(if git rev-parse --git-dir > /dev/null 2>&1; then echo " - ["; fi)$(git branch 2>/dev/null | grep "^*" )\[\033[0;32m\]$(if git rev-parse --git-dir > /dev/null 2>&1; then echo "]"; fi)\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\]\[\033[0m\] '
-# export PS1="\[\e[0;32m\]\[\e[0m\]\[\e[0;32m\]\u\[\e[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\] $(parse_git_branch)\n\[\033[0;32m\]└─\[\033[0m\]\[\033[0;32m\] \$\[\033[0m\]\[\033[0;32m\] ▶\[\033[0m\] "
 #############################################################################
-#https://gist.github.com/justintv/168835#gistcomment-2711710
+# ┌─────────────────────────────┐
+# │     ALIASES & FUNCTIONS     │
+# └─────────────────────────────┘
+# must be sourced first
+#############################################################################
+source "$HOME/.config/bash/.bash_aliases"
+source "$HOME/.config/bash/.bash_functions"
 
-################
-# ZSH
+#############################################################################
+# ┌────────────────────┐
+# │       ZSH          │
+# └────────────────────┘
 # https://gist.github.com/fworks/af4c896c9de47d827d4caa6fd7154b6b
-################
+#############################################################################
 # Launch Zsh
 #if [ -t 1 ]; then
 #exec zsh-5.8
 #fi
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  #tmux a -t default || exec tmux new -s default && exit;
-  #-A : attach to 'default' session if already exists
-  #-s : session name
-  exec tmux new-session -A -s default ;
-fi
+
+#############################################################################
+# ┌────────────────────┐
+# │       PROMPT       │
+# └────────────────────┘
+# ref : https://gist.github.com/justintv/168835#gistcomment-2711710
+#############################################################################
+source_if_exists "$HOME/.config/git/git-prompt.sh"
+
+#############################################################################
+# ┌────────────────────┐
+# │      TMUX          │
+# └────────────────────┘
+#############################################################################
+# Not so sure : putting it in seperate script makes detaching from tmux
+# session, results normal bash prompt
+source_if_exists "$HOME/.config/tmux/startup.sh"
