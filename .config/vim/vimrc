@@ -1,0 +1,33 @@
+" ┌───────────────────────────┐
+" │           VIMRC           │
+" └───────────────────────────┘
+"
+" Resources
+" changing vimrc folder :
+" [stackexchange]: https://vi.stackexchange.com/questions/11879/how-can-put-vimrc-and-viminfo-into-vim-directory
+"
+"
+let g:BASE_DIR="$HOME/.config/vim"
+let rtp=&runtimepath
+set runtimepath=g:BASE_DIR
+let &runtimepath.=","
+					\.rtp.","
+					\.g:BASE_DIR."/after"
+
+set viminfo+=n.g:BASE_DIR.'/viminfo'
+
+exec "set directory="
+		\.g:BASE_DIR."/swap//"
+		\.".,"
+		\."$HOME/tmp,"
+		\."/var/tmp,"
+		\."/tmp"
+exec "set backupdir="
+		\.g:BASE_DIR."/backup//"
+		\.".,"
+		\."$HOME/tmp,"
+		\."$HOME/"
+exec "set undodir="
+		\.g:BASE_DIR."/undo//"
+		\."."
+let g:netrw_home=g:BASE_DIR

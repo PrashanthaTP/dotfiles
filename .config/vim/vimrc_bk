@@ -7,3 +7,5 @@ source $HOME/.vim/general/leader.vim
 
 hi CursorLine ctermbg=237 guibg=grey cterm=NONE
 hi CursorLineNr ctermbg=237 guibg=grey cterm=NONE
+hi! NonText guifg=bg ctermfg=NONE
+
