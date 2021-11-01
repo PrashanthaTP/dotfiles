@@ -1,0 +1,35 @@
+# ┌─────────────────────────────┐
+# │                             │
+# │    Dotfiles GitIgnore       │
+# │                             │
+# └─────────────────────────────┘
+# ref : https://github.com/bitprophet/dotfiles/blob/main/.gitignore
+
+
+# Ignore everything by default.
+*
+
+!.config
+!.config/**
+
+# Bash stuff (profile just sources bashrc, since it's the only thing sourced
+# when a shell is a login shell).
+!.bash*
+.*.swp
+.bash_history
+.bash_local
+.bash_logout
+!.profile
+
+
+# Git aliases, identification info
+#!.gitconfig
+# The gitignore of this repository itself (!)
+!.gitignore
+# My global Git excludes file (acts as a global .gitignore)
+#!.gitexcludes
+
+
+# vim
+.netrw*
+view/
