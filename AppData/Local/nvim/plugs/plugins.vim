@@ -6,7 +6,7 @@ call plug#begin(s:PLUGIN_DIR)
 	Plug 'morhetz/gruvbox'
 	"Plug 'sainnhe/gruvbox-material'
 	" NERD tree will be loaded on the first invocation of NERDTreeToggle command"
-	Plug 'preservim/nerdtree',{ 'on': 'NERDTreeToggle'}
+	"Plug 'preservim/nerdtree',{ 'on': 'NERDTreeToggle'}
 	"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'

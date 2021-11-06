@@ -1,7 +1,7 @@
 " Mappings with leader key
 " source vim file
-nmap <leader>sv :source $LOCALAPPDATA/nvim/init.vim<CR>
-nmap <leader>so :e $LOCALAPPDATA/nvim/init.vim<CR>
+nmap <leader>vs :source $LOCALAPPDATA/nvim/init.vim<CR>
+nmap <leader>vo :e $LOCALAPPDATA/nvim/init.vim<CR>
 " nmap <leader>so :vsplit <bar> :e $LOCALAPPDATA/nvim/init.vim<CR>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprev<CR>
@@ -21,4 +21,5 @@ nnoremap <silent> <Leader>0 :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>9 :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 " }}}
 
-"nmap <leader>ws :
+"netrw
+nnoremap <silent><leader>t :Lexplore<CR>

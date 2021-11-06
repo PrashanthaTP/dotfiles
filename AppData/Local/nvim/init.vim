@@ -17,7 +17,7 @@ source $LOCALAPPDATA/nvim/plugs/fzf.vim
 source $LOCALAPPDATA/nvim/plugs/goyo.vim
 source $LOCALAPPDATA/nvim/plugs/lightline_v1.vim
 source $LOCALAPPDATA/nvim/plugs/markdown.vim
-source $LOCALAPPDATA/nvim/plugs/nerdtree.vim
+"source $LOCALAPPDATA/nvim/plugs/nerdtree.vim
 
 source $LOCALAPPDATA/nvim/plugs/telescope_plug.vim
 "

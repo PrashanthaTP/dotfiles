@@ -3,14 +3,12 @@ set mouse=a
 " CLIPBOARD ----- {{{
 "vim clipboard and system clipboard same now
 set clipboard^=unnamed
-
 "wrap backspace
 set backspace=indent,eol,start
 "https://stackoverflow.com/a/53872985/12988588
 "dont save character deleted using `x`
 "send it to The blackhole-register
 nnoremap x "_x
-
 "set autochdir
 " }}}
 
@@ -109,3 +107,5 @@ set shortmess+=c
 	" set guioptions-=e
 " endif
 
+let g:netrw_liststyle=3
+let g:netrw_winsize=30
