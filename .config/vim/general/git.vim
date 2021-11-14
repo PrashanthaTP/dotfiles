@@ -26,5 +26,4 @@ augroup GITCOMMIT_SETTINGS
 	"https://vi.stackexchange.com/questions/4343/can-i-detect-whether-current-vim-instance-is-launched-by-git
 	autocmd!
 	autocmd FileType gitcommit,gitrebase silent :call Set_git_settings()
-	highlight! Normal ctermfg=223 ctermbg=235 guifg=#ebdbb2 guibg=#282828
 augroup END

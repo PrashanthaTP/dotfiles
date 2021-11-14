@@ -1,15 +1,11 @@
 "General Settings
+set nocompatible
+set belloff=all
+"set novisualbell
 set mouse=a
 " CLIPBOARD ----- {{{
 "vim clipboard and system clipboard same now
-set clipboard^=unnamed
-"wrap backspace
-set backspace=indent,eol,start
-"https://stackoverflow.com/a/53872985/12988588
-"dont save character deleted using `x`
-"send it to The blackhole-register
-nnoremap x "_x
-"set autochdir
+set clipboard^=unnamedplus
 " }}}
 
 
@@ -17,6 +13,13 @@ nnoremap x "_x
 syntax on
 set conceallevel=0
 
+"wrap backspace
+set backspace=indent,eol,start
+"https://stackoverflow.com/a/53872985/12988588
+"dont save character deleted using `x`
+"send it to The blackhole-register
+nnoremap x "_x
+"set autochdir
 " filetype on
 " filetype plugin on
 " filetype indent on
@@ -26,16 +29,19 @@ set smartcase
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set number relativenumber
+set expandtab
+set smartindent
+set number
 set scrolloff=8
 set showtabline=2
 set lazyredraw
-"set colorcolumn=80
+set scrolloff=999
+set colorcolumn=80
+set cursorline
 " Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39
 "set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
 "set list
-" }}}
-"
+"}}}
 
 " SEARCHING ----- {{{
 set incsearch "on by default"
@@ -106,4 +112,4 @@ set shortmess+=c
 " if has('gui_running')
 	" set guioptions-=e
 " endif
-"
+

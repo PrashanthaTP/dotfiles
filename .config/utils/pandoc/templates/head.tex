@@ -1,0 +1,40 @@
+\usepackage{longtable}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% \usepackage[scaled]{helvet}
+
+\usepackage{glossaries}
+
+\makeglossaries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Block Quotes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{framed}
+\usepackage{quoting}
+
+\definecolor{bgcolor}{HTML}{DADADA}
+\colorlet{shadecolor}{bgcolor}
+% define a new environment shadedquotation. You can change leftmargin and
+% rightmargin as you wish.
+\newenvironment{shadedquotation}
+ {\begin{shaded*}
+  \quoting[leftmargin=1em, rightmargin=0pt, vskip=0pt, font=itshape]
+ }
+ {\endquoting
+ \end{shaded*}
+ }
+
+%
+\def\quote{\shadedquotation}
+\def\endquote{\endshadedquotation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inline Quotes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+
+\definecolor{bgcolor}{HTML}{E0E0E0}
+\let\oldtexttt\texttt
+\newcommand{\code}[1]{\begingroup\setlength{\fboxsep}{1pt}\colorbox{bgcolor}{\oldtexttt{\hspace*{2pt}\vphantom{A}#1\hspace*{2pt}}}\endgroup}
+\renewcommand{\texttt}[1]{\code{\oldtexttt{#1}}}

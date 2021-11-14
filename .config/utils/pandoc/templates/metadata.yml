@@ -1,0 +1,15 @@
+title: <title>
+date: <date>
+keywords: [<tag1>,<tag2>],
+lang: "en"
+subtitle: "<subtitle>"
+fontfamily: "Source Code Pro"
+fontsize: 14pt
+monofont: "Source Code Pro"
+titlepage: true,
+titlepage-text-color: "FFFFFF"
+titlepage-rule-color: "360049"
+titlepage-rule-height: 0
+titlepage-background: "<absolute or relative path>/templates/background.pdf"
+page-background-none: "<absolute or relative path>/templates/background1.pdf"
+toc-own-page: true

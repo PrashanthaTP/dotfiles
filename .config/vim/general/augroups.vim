@@ -46,7 +46,7 @@ augroup CURSOR_MANAGEMENT
 " (ii) https://github.com/microsoft/terminal/issues/1604
 if has('win32')
 	"https://github.com/neovim/neovim/issues/4867#issuecomment-291249173"
-	autocmd VimEnter * silent !echo  -ne "\e[2 q"
+	autocmd VimEnter * silent !echo  -ne "\1\e[6 q\2"
 	autocmd VimLeave * set guicursor=a:ver25
 
 else
@@ -57,15 +57,3 @@ else
 endif
 augroup END
 " }}
-"
-"autocmd filetype netrw call Netrw_mappings()
-
-function! Netrw_mappings()
-  noremap <buffer>% :call CreateInPreview()<cr>
-endfunction
-
-function! CreateInPreview()
-  let l:filename = input("please enter filename: ")
-  execute 'silent !touch ' . b:netrw_curdir.'/'.l:filename
-  redraw!
-endf
