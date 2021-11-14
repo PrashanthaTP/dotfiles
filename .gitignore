@@ -10,7 +10,25 @@
 *
 
 !.config
-!.config/**
+
+!.config/vim
+!.config/vim/**
+
+!.config/tmux
+!.config/tmux/**
+
+!.config/git
+!.config/git/**
+
+!.config/utils
+!.config/utils/**
+
+!.config/bash
+!.config/bash/**
+
+#tmux plugins
+.config/tmux/plugins
+
 # Bash stuff (profile just sources bashrc, since it's the only thing sourced
 # when a shell is a login shell).
 !.bash*
@@ -38,5 +56,3 @@ view/
 !AppData/Local/nvim
 !AppData/Local/nvim/**
 
-#tmux plugins
-.config/tmux/plugins
