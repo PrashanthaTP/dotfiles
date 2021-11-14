@@ -36,3 +36,6 @@ view/
 # nvim
 !AppData/Local/nvim
 !AppData/Local/nvim/**
+
+#tmux plugins
+.config/tmux/plugins
