@@ -11,7 +11,6 @@
 
 !.config
 !.config/**
-
 # Bash stuff (profile just sources bashrc, since it's the only thing sourced
 # when a shell is a login shell).
 !.bash*
@@ -33,3 +32,7 @@
 # vim
 .netrw*
 view/
+
+# nvim
+!AppData/Local/nvim
+!AppData/Local/nvim/**
