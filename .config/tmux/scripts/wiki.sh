@@ -10,10 +10,11 @@
 SESSION="wiki"
 
 if [ "$(tmux display-message -p -F "#{session_name}")" = "${SESSION}" ];then
-    echo "Detaching from ${SESSION}"
+    # for -F option see https://man7.org/linux/man-pages/man1/tmux.1.html#FORMATS
+   #echo "Detaching from ${SESSION}"
     tmux detach-client # detach if already in the popup
     tmux display-message "detached from session:${SESSION}"
-    exit 1
+    exit 0 # 0 for success
 fi
 
 WINDOW="vimwiki"
@@ -35,9 +36,9 @@ open_wiki(){
 tmux has-session -t "${SESSION}" &> /dev/null
 [ $? == 0 ] && SESSION_EXISTS=1
 [ ${SESSION_EXISTS} == 0 ] && open_wiki
-echo "Attaching to session 'wiki'"
+#echo "Attaching to session 'wiki'"
 tmux display-message "Attaching to session:${SESSION}"
-tmux display-popup -E -h "80%" -w "80%" "tmux attach -t ${SESSION}"
+tmux display-popup -E -h "85%" -w "85%" "tmux attach -t ${SESSION}"
 
 #tmux display-popup -E -h "80%" -w "80%" "tmux new-session -A -s ${SESSION} \;\
                         #rename-window -t 0 \"${WINDOW}\" \;\
