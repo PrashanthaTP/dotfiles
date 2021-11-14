@@ -57,3 +57,15 @@ else
 endif
 augroup END
 " }}
+"
+"autocmd filetype netrw call Netrw_mappings()
+
+function! Netrw_mappings()
+  noremap <buffer>% :call CreateInPreview()<cr>
+endfunction
+
+function! CreateInPreview()
+  let l:filename = input("please enter filename: ")
+  execute 'silent !touch ' . b:netrw_curdir.'/'.l:filename
+  redraw!
+endf
