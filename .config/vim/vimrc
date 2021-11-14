@@ -9,7 +9,7 @@
 "
 let g:BASE_DIR="$HOME/.config/vim"
 let rtp=&runtimepath
-set runtimepath=g:BASE_DIR
+exec "set runtimepath=".g:BASE_DIR
 let &runtimepath.=","
 					\.rtp.","
 					\.g:BASE_DIR."/after"
@@ -31,3 +31,35 @@ exec "set undodir="
 		\.g:BASE_DIR."/undo//"
 		\."."
 let g:netrw_home=g:BASE_DIR
+
+let mapleader="\<Space>"
+exec "source ".g:BASE_DIR."/general/augroups.vim"
+exec "source ".g:BASE_DIR."/general/general.vim"
+exec "source ".g:BASE_DIR."/general/cursor.vim"
+exec "source ".g:BASE_DIR."/general/keybindings.vim"
+exec "source ".g:BASE_DIR."/general/leader.vim"
+
+highlight Comment cterm=italic gui=italic
+
+highlight ColorColumn ctermbg=235 guibg=lightgrey cterm=NONE gui=NONE
+highlight CursorLine ctermbg=236 guibg=lightgrey cterm=NONE gui=NONE
+highlight CursorLineNr ctermbg=236 guibg=lightgrey cterm=NONE gui=NONE
+
+highlight TabLineSel ctermbg=77 ctermfg=0 cterm=BOLD
+highlight TabLineFill ctermbg=0 ctermfg=235 cterm=BOLD
+highlight TabLineSel ctermbg=77 ctermfg=0
+highlight TabLine ctermbg=0 ctermfg=77
+
+highlight visual ctermbg=238 guibg=#000000 gui=NONE
+
+
+hi MatchParen ctermbg=0 guibg=lightblue
+"hi! ColorColumn ctermbg=236 guibg=grey cterm=NONE
+"hi! CursorLine ctermbg=236 guibg=grey cterm=NONE
+"hi! CursorLineNr ctermbg=237 guibg=grey cterm=NONE
+hi! LineNr ctermbg=232 guibg=grey cterm=NONE
+"hi! NonText guifg=bg ctermfg=NONE
+"hi! Visual ctermbg=237 guibg=#dddddd cterm=NONE
+"
+let g:netrw_cursor=0 " to use userdefined CursorLine and ColorColumn
+let g:netrw_winsize=30
