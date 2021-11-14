@@ -6,10 +6,12 @@ call plug#begin(s:PLUGIN_DIR)
 	Plug 'morhetz/gruvbox'
 	"Plug 'sainnhe/gruvbox-material'
 	" NERD tree will be loaded on the first invocation of NERDTreeToggle command"
-	"Plug 'preservim/nerdtree',{ 'on': 'NERDTreeToggle'}
+	Plug 'preservim/nerdtree',{ 'on': 'NERDTreeToggle'}
 	"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
+"	Plug 'tpope/vim-vinegar'
+
 	Plug 'ryanoasis/vim-devicons'
 	" Track the engine.
 	Plug 'SirVer/ultisnips'
@@ -18,7 +20,7 @@ call plug#begin(s:PLUGIN_DIR)
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	"Plug 'nvim-lua/plenary.nvim'
-	"Plug 'nvim-telescope/telescope.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	"Plug 'w0rp/ale'
 	"Plug 'sheerun/vim-polyglot'
@@ -36,6 +38,7 @@ call plug#begin(s:PLUGIN_DIR)
 
 	Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 	Plug 'junegunn/goyo.vim'
+
 
 call plug#end()
 " }}}
