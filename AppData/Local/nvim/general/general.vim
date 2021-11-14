@@ -106,6 +106,4 @@ set shortmess+=c
 " if has('gui_running')
 	" set guioptions-=e
 " endif
-
-let g:netrw_liststyle=3
-let g:netrw_winsize=30
+"

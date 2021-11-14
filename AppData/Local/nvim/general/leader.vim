@@ -22,4 +22,4 @@ nnoremap <silent> <Leader>9 :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 " }}}
 
 "netrw
-nnoremap <silent><leader>t :Lexplore<CR>
+"nnoremap <silent><leader>t :Lexplore<CR>
