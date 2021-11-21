@@ -10,7 +10,7 @@ Invoke-Expression (oh-my-posh --init --shell pwsh --config "C://Users//Prashanth
 
 
 $env:LC_ALL='C.UTF-8'
-#$env:TERM='xterm-256color'
+$env:TERM='xterm-256color'
 function configfiles_fn{
 	git --git-dir=D:/dotfiles/dotfiles --work-tree=$HOME $args
 	}
@@ -122,4 +122,46 @@ $wtsettings = (Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTermin
 $env:GVIMINIT='let $MYGVIMRC=has("nvim")?$MYGVIMRC:"$HOME/.config/vim/vimrc" | source $MYGVIMRC'
 
 #export VIMINIT='let $MYVIMRC=has("nvim")?$MYVIMRC:"$HOME/.config/vim/vimrc" | source $MYVIMRC'
-$env:VIMINIT='let $MYVIMRC=has("nvim")?"$LOCALAPPDATA/nvim/init.vim":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+#$env:VIMINIT='let $MYVIMRC=has("nvim")?"$LOCALAPPDATA/nvim/init.vim":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+$env:VIMINIT='let $MYVIMRC=has("nvim")?"$HOME/.config/nvim/init.lua":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+$env:DEV_DIR='E:/Users/VS_Code_Workspace'
+
+$env:NVIM_CONFIG=$env:LOCALAPPDATA+'/nvim'
+
+#temp directories
+function cd_proj_dir{
+		cd $env:PROJ_DIR
+	}
+# add clangd to path
+$env:path+=';D:\Applications\Clangd\clangd_12.0.1\bin'
+#add ripgrep to path :
+#https://github.com/BurntSushi/ripgrep
+$env:path+=';D:\Applications\Unix\ripgrep-13.0.0-x86_64-pc-windows-gnu'
+#add bat program
+#https://github.com/sharkdp/bat#using-bat-on-windows
+$env:path+=';D:\Applications\Unix\bat-v0.18.3-x86_64-pc-windows-gnu\bat-v0.18.3-x86_64-pc-windows-gnu'
+
+$env:FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --no-ignore-vcs'
+$env:FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+###########################################################
+# FZY
+#set-alias -name fzy -value $env:ProgramFiles/Git/usr/bin/fzy.exe
+#$env:path+=';D:\Applications\FZF\fzy\usr\bin' # added to system env variables
+
+set-alias -name which -value $env:ProgramFiles/Git/usr/bin/which.exe
+
+
+#########################################
+# vim
+# ######################################
+function open_vim{
+		& "C:/Program Files/Git/usr/bin/vim.exe" $args
+	}
+set-alias -name vim -value open_vim
+
+
+function bash_ls{
+		& "C:/Program Files/Git/usr/bin/ls.exe" $args
+	}
+set-alias -name lsb -value bash_ls
+
