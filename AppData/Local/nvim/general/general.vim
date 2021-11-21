@@ -26,7 +26,7 @@ set smartcase
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set number relativenumber
+set number
 set scrolloff=8
 set showtabline=2
 set lazyredraw

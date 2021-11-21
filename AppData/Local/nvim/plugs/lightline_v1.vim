@@ -4,7 +4,7 @@
 " + Gruvbox Material
 " Lightline
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'gruvbox_material',
       \ 'active': {
 		  \   'left': [ [ 'mode', 'paste' ],['readonly', 'modified','fugitive']],
       \   'right' : [['cocstatus', 'currentfunction'],['lineinfo'], ['percent'],['filetype','fileencoding']]
