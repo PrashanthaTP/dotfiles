@@ -14,6 +14,9 @@
 !.config/vim
 !.config/vim/**
 
+!.config/nvim
+!.config/nvim/**
+
 !.config/tmux
 !.config/tmux/**
 
