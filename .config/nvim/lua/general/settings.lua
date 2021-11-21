@@ -113,6 +113,6 @@ set shortmess+=c
 "
 let g:netrw_cursor=0 " to use userdefined CursorLine and ColorColumn
 let g:netrw_winsize=30
-
+let g:netrw_liststyle=3
 ]]
 )
