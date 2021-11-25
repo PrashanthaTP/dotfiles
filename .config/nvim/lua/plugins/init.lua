@@ -42,6 +42,7 @@ require("plugins.nerdtree")
 require("plugins.nvim-lspconfig")
 require("plugins.nvim-cmp")
 require("plugins.vim-vsnip")
+require("plugins.lualine")
 
 vim.cmd([[colorscheme gruvbox-material]])
 --require('plugins.syntax.gruvbox')
