@@ -15,6 +15,7 @@ nnoremap x "_x
 " }}}
 
 " EDITOR ----- {{{
+set termguicolors
 syntax on
 set conceallevel=0
 
@@ -26,13 +27,19 @@ set ignorecase
 set smartcase
 " use 4 spaces for tabs
 set tabstop=4
+set autoindent
+set smarttab
+set expandtab
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set number
 set scrolloff=8
 set showtabline=2
 set lazyredraw
-"set colorcolumn=80
+set cursorline
+set colorcolumn=80
+set signcolumn=yes
 " Show white spaces https://gist.github.com/jdavid82/d40f40e6f124aad6223eba0ff0c7ad65#file-vimrc-L37-L39
 "set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
 "set list
