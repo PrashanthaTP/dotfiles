@@ -18,6 +18,7 @@ nnoremap x "_x
 syntax on
 set conceallevel=0
 
+let g:vimsyn_embed = 'l' " syntax heightlighting for embedded lua
 " filetype on
 " filetype plugin on
 " filetype indent on
