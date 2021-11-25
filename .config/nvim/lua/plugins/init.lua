@@ -37,3 +37,9 @@ Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 Plug("nvim-lualine/lualine.nvim")
 
 vim.call("plug#end")
+
+require("plugins.nerdtree")
+
+vim.cmd([[colorscheme gruvbox-material]])
+--require('plugins.syntax.gruvbox')
+
