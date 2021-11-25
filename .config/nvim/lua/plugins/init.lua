@@ -43,6 +43,7 @@ require("plugins.nvim-lspconfig")
 require("plugins.nvim-cmp")
 require("plugins.vim-vsnip")
 require("plugins.lualine")
+require("plugins.nvim-treesitter")
 
 vim.cmd([[colorscheme gruvbox-material]])
 --require('plugins.syntax.gruvbox')
@@ -70,8 +71,8 @@ let g:neoformat_python_autopep8 = {
             \ 'exe': 'python -m autopep8',
             \ 'args': ['-s 4', '-E'],
             \ 'replace': 1 ,
-            \ 'stdin': 1,
-            \ 'env': ["DEBUG=1"],
+            \ 'stdin': 1, 
+            \ 'env': ["DEBUG=1"], 
             \ 'valid_exit_codes': [0, 23],
             \ 'no_append': 1,
             \ }
