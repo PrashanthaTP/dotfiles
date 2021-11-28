@@ -38,6 +38,8 @@ Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 Plug("nvim-lualine/lualine.nvim")
 
 Plug("nvim-telescope/telescope.nvim")
+Plug("kyazdani42/nvim-web-devicons") --load at the end : for lua plugins
+Plug("ryanoasis/vim-devicons") -- for vim plugins
 vim.call("plug#end")
 
 require("plugins.nerdtree")
