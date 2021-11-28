@@ -31,4 +31,23 @@ M.replace_termcodes = function(str)
 	return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+M.os_windows = "win32"
+M.os_unix = "unix"
+M.os_mac = "mac"
+M.os_unknown = "unknown"
+
+M.get_os_name = function()
+	local system_name
+	if vim.fn.has(M.mac) == 1 then
+		system_name = M.mac
+	elseif vim.fn.has(M.unix) == 1 then
+		system_name = M.unix
+	elseif vim.fn.has(M.windows) == 1 then
+		system_name = M.windows
+	else
+		system_name = M.unknown_os
+		return system_name
+	end
+end
+
 return M -- module table
