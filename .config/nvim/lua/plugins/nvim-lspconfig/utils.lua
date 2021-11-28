@@ -25,7 +25,8 @@ M.set_keymappings = function(bufnr)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", t("<space>q"), "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-	buf_set_keymap("n", t("<space>f"), "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", t("<space>wf"), "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	-- formatting
 end
 
 -- Use an on_attach function to only map the following keys
@@ -38,6 +39,11 @@ M.on_attach = function(client, bufnr)
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 	-- Mappings.
 	M.set_keymappings(bufnr)
+
+	--[[ if client.name == 'tsserver' then
+    client.resolved_capabilities.document_formatting = false
+  end
+  --]]
 	if client.resolved_capabilities.document_formatting then
 		vim.api.nvim_command([[augroup FORMAT]])
 		vim.api.nvim_command([[autocmd! * <buffer>]])
@@ -45,9 +51,59 @@ M.on_attach = function(client, bufnr)
 		vim.api.nvim_command([[augroup end]])
 	end
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = {spacing=4,prefix='' }, signs = true, underline = true,
+		virtual_text = { spacing = 4, prefix = "" },
+		signs = true,
+		underline = true,
 		update_in_insert = true,
 	})
+	--protocol.SymbolKind = { }
+	vim.lsp.protocol.completionItemKind = {
+		"", -- Text
+		"", -- Method
+		"", -- Function
+		"", -- Constructor
+		"", -- Field
+		"", -- Variable
+		"", -- Class
+		"ﰮ", -- Interface
+		"", -- Module
+		"", -- Property
+		"", -- Unit
+		"", -- Value
+		"", -- Enum
+		"", -- Keyword
+		"﬌", -- Snippet
+		"", -- Color
+		"", -- File
+		"", -- Reference
+		"", -- Folder
+		"", -- EnumMember
+		"", -- Constant
+		"", -- Struct
+		"", -- Event
+		"ﬦ", -- Operator
+		"", -- TypeParameter
+	}
 end
 
+--[==[== on attach add formatting functionality
+--
+	if client.resolved_capabilities.document_formatting then
+		vim.api.nvim_command([[augroup FORMAT]])
+		vim.api.nvim_command([[autocmd! * <buffer>]])
+		vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]])
+		vim.api.nvim_command([[augroup end]])
+	end
+--]==]
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+M.get_capabilities = function()
+	local _capabilities = nil
+	if capabilities == nil then
+		_capabilities = vim.lsp.protocol.make_client_capabilities()
+		_capabilities.textDocument.completion.completionItem.snippetSupport = true
+	else
+		_capabilities = capabilities
+	end
+	return _capabilities
+end
 return M
