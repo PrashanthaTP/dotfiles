@@ -1,15 +1,22 @@
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local luaconfig = require('lspconfig')
 local M = {}
 
-M.setup = function(on_attach)
+M.setup = function(on_attach,capabilities)
     -- Make runtime files discoverable to the server
     local runtime_path = vim.split(package.path, ';')--package path is nvim installation dir/bin/lua
 
+	local _capabilities = nil
+	if capabilities == nil then
+		_capabilities = vim.lsp.protocol.make_client_capabilities()
+		_capabilities.textDocument.completion.completionItem.snippetSupport = true
+	else
+		_capabilities = capabilities
+	end
+
     luaconfig.sumneko_lua.setup {
-    capabilities=capabilities,
-    cmd = {LUA_LANG_SERVER_EXE, "-E", LUA_LANG_SERVER_MAIN_LUA},
     on_attach=on_attach,
+    capabilities=_capabilities,
+    cmd = {LUA_LANG_SERVER_EXE, "-E", LUA_LANG_SERVER_MAIN_LUA},
       init_options = {
           provideFormatter = true
         },
