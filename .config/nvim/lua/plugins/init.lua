@@ -37,6 +37,7 @@ Plug("hrsh7th/cmp-vsnip")
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 Plug("nvim-lualine/lualine.nvim")
 
+Plug("nvim-telescope/telescope.nvim")
 vim.call("plug#end")
 
 require("plugins.nerdtree")
@@ -45,6 +46,8 @@ require("plugins.nvim-lspconfig")
 require("plugins.vim-vsnip")
 require("plugins.lualine")
 require("plugins.nvim-treesitter")
+
+require("plugins.nvim-telescope")
 
 vim.cmd([[colorscheme gruvbox-material]])
 --require('plugins.syntax.gruvbox')
