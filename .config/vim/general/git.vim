@@ -1,7 +1,9 @@
 function Set_git_settings()
-	"colorscheme gruvbox
-	"below line is important : gruvbox-material doesn't work
-	let g:lightline.colorscheme='gruvbox'
+
+    let g:gruvbox_contrast_dark="mixed"
+    highlight! CursorLine ctermbg=236 term=NONE cterm=NONE gui=NONE guibg=NONE
+    highlight! CursorLineNr ctermbg=236 term=NONE cterm=NONE gui=NONE guibg=NONE
+	"let g:lightline.colorscheme='gruvbox-material'
 endfunction
 
 if &diff
@@ -17,7 +19,7 @@ if &diff
 	highlight! link DiffText MatchParen
 	"no transperant bg : set to default colors from gruvbox"
 	"found out using :hi Normal
-	highlight! Normal ctermfg=223 ctermbg=235 guifg=#ebdbb2 guibg=#282828
+	"highlight! Normal ctermfg=223 ctermbg=235 guifg=#ebdbb2 guibg=#282828
 	:call Set_git_settings()
 endif
 
