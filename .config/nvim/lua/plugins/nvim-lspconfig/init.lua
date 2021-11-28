@@ -8,6 +8,7 @@ local servers = { "pyright", "clangd", "cmake", "tsserver", "cssls", "sumneko_lu
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+--[[
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		capabilities = capabilities,
@@ -17,8 +18,10 @@ for _, lsp in ipairs(servers) do
 		},
 	})
 end
-
-require("plugins.nvim-lspconfig.servers.cssls").setup(on_attach)
-require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach)
-require("plugins.nvim-lspconfig.servers.efm").setup(on_attach)
-require("plugins.nvim-lspconfig.servers.tsserver").setup(on_attach)
+--]]
+vim.lsp.set_log_level("debug")
+require("plugins.nvim-lspconfig.servers.cssls").setup(on_attach,capabilities)
+require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach,capabilities)
+--require("plugins.nvim-lspconfig.servers.efm").setup(on_attach,capabilities)
+require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
+require("plugins.nvim-lspconfig.servers.tsserver").setup(on_attach,capabilities)
