@@ -1,3 +1,4 @@
+vim.g["NERDTreeIgnore"] = {'^node_modules$','\\.git$', '\\.idea$', '\\.vscode$', '\\.history$'}
 vim.cmd([[
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>y :NERDTreeFind<CR>
