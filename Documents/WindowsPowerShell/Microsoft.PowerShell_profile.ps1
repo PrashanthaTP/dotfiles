@@ -61,9 +61,15 @@ function cd_proj_dir{
 		cd $env:PROJ_DIR
 	}
 set-alias -name cdp -value cd_proj_dir
-
 $env:FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --no-ignore-vcs'
-$env:FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+$env:FZF_DEFAULT_OPTS='--height 40% --layout=reverse  --ansi --border --preview "bat --color=always {1}"'
+
+function open_wiki{
+    $local:cmd="C:/Program Files/Git/usr/bin/find.exe" 
+    $local:dir="D:/dotfiles/wiki"
+    
+        nvim $(& $cmd $dir -type f -name '\*.md' -not -path '\*/.git/\*'| fzf)
+    }
 ###########################################################
 # FZY
 #set-alias -name fzy -value $env:ProgramFiles/Git/usr/bin/fzy.exe
@@ -86,7 +92,7 @@ function vim{
     run_git_utility "vim" $Args
 }
 
-function ls{
+function lsg{
 	run_git_utility "ls" $args
 }
 
