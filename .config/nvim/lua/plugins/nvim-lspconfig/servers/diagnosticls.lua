@@ -1,3 +1,6 @@
+-- EFM Language Server
+--https://phelipetls.github.io/posts/configuring-eslint-to-work-with-neovim-lsp/
+
 local nvim_lsp = require("lspconfig")
 local M = {}
 
@@ -7,7 +10,6 @@ M.setup = function(on_attach, capabilities)
 		capabilities = capabilities,
 		cmd = { "diagnostic-languageserver.cmd", "--stdio" },
 		filetypes = {
-			"lua",
 			"javascript",
 			"javascriptreact",
 			"json",
@@ -17,6 +19,7 @@ M.setup = function(on_attach, capabilities)
 			"less",
 			"scss",
 			"markdown",
+			"python",
 			"pandoc",
 		},
 		single_file_support = true,
@@ -69,7 +72,7 @@ M.setup = function(on_attach, capabilities)
 				},
 				prettier_python = {
 					command = "python -m autopep8",
-					args = { "-" },
+					args = { "%filename" },
 				},
 			},
 			formatFiletypes = {
@@ -77,12 +80,12 @@ M.setup = function(on_attach, capabilities)
 				javascript = "prettierd",
 				javascriptreact = "prettierd",
 				json = "prettier",
-				lua = "prettier_lua",
-				scss = "prettier",
 				less = "prettier",
+				markdown = "prettier",
+				python = "prettier_python",
+				scss = "prettier",
 				typescript = "prettierd",
 				typescriptreact = "prettierd",
-				markdown = "prettier",
 			},
 		},
 	})

@@ -1,3 +1,5 @@
+--Sumneko Language Server
+--formatting not supported
 local luaconfig = require('lspconfig')
 local M = {}
 
