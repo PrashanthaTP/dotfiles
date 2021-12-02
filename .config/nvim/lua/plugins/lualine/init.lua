@@ -1,6 +1,7 @@
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
+-- modified-by: PrashanthaTP
 local lualine = require("lualine")
 
 -- Color table for highlights
@@ -37,8 +38,12 @@ local conditions = {
 local config = {
 	options = {
 		-- Disable sections and component separators
-		component_separators = "",
+		--
+		component_separators = "|",
 		section_separators = "",
+		--	section_separators = { left = "", right = "" },
+		--	component_separators = { left = "", right = "" },
+		--theme = "wombat",
 		theme = {
 			-- We are going to use lualine_c an lualine_x as left and
 			-- right section. Both are highlighted by c theme .  So we
@@ -49,7 +54,7 @@ local config = {
 	},
 	sections = {
 		-- these are to remove the defaults
-		lualine_a = {},
+		lualine_a = { "mode" },
 		lualine_b = {},
 		lualine_y = {},
 		lualine_z = {},
@@ -78,6 +83,7 @@ local function ins_right(component)
 	table.insert(config.sections.lualine_x, component)
 end
 
+--[===[
 ins_left({
 	function()
 		return "▊"
@@ -85,7 +91,8 @@ ins_left({
 	color = { fg = colors.blue }, -- Sets highlighting of component
 	padding = { left = 0, right = 1 }, -- We don't need space before this
 })
-
+--]===]
+--[===[
 ins_left({
 	-- mode component
 	function()
@@ -118,11 +125,13 @@ ins_left({
 	color = "LualineMode",
 	padding = { right = 1 },
 })
-
+--]===]
+--
 ins_left({
 	"filename",
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.magenta, gui = "bold" },
+	--color = { fg = colors.magenta, gui = "bold" },
+	color = { fg = colors.green, gui = "bold" },
 })
 
 ins_left({
@@ -133,13 +142,24 @@ ins_left({
 
 ins_left({
 	"diagnostics",
+	-- table of diagnostic sources, available sources:
+	-- 'nvim_lsp', 'nvim', 'coc', 'ale', 'vim_lsp'
+	-- Or a function that returns a table like
+	--   {error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt}
 	sources = { "nvim_lsp" },
-	symbols = { error = " ", warn = " ", info = " " },
+	-- displays diagnostics from defined severity
+	sections = { "error", "warn", "info", "hint" },
 	diagnostics_color = {
-		color_error = { fg = colors.red },
-		color_warn = { fg = colors.yellow },
-		color_info = { fg = colors.cyan },
+		-- Same values like general color option can be used here.
+		error = { fg = colors.red }, -- changes diagnostic's error color
+		warn = { fg = colors.orange }, -- changes diagnostic's warn color
+		info = { fg = colors.blue }, -- Changes diagnostic's info color
+		hint = { fg = colors.yellow }, -- Changes diagnostic's hint color
 	},
+	symbols = { error = "E", warn = "W", info = "I", hint = "H" },
+	colored = true, -- displays diagnostics status in color if set to true
+	update_in_insert = false, -- Update diagnostics in insert mode
+	always_visible = false, -- Show diagnostics even if count is 0, boolean or function returning boolean
 })
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -168,7 +188,8 @@ ins_right({
 		return msg
 	end,
 	icon = " LSP:",
-	color = { fg = "#ffffff", gui = "bold" },
+	--color = { fg = "#ffffff", gui = "bold" },
+	color = { fg = colors.green, gui = "bold" },
 })
 
 ins_right({ "location" })
@@ -192,7 +213,8 @@ ins_right({
 ins_right({
 	"diff",
 	-- Is it me or the symbol for modified us really weird
-	symbols = { added = " ", modified = "柳 ", removed = " " },
+	--symbols = { added = " ", modified = " 柳 ", removed = " " },
+	symbols = { added = " ", modified = "ﮐ  ", removed = " " },
 	diff_color = {
 		added = { fg = colors.green },
 		modified = { fg = colors.orange },
@@ -206,6 +228,7 @@ ins_right({
 	"filesize",
 	cond = conditions.buffer_not_empty,
 })
+--[===[
 ins_right({
 	function()
 		return "▊"
@@ -213,6 +236,6 @@ ins_right({
 	color = { fg = colors.blue },
 	padding = { left = 1 },
 })
-
+--]===]
 -- Now don't forget to initialize lualine
 lualine.setup(config)
