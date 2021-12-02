@@ -46,8 +46,8 @@ M.get_os_name = function()
 		system_name = M.windows
 	else
 		system_name = M.unknown_os
-		return system_name
 	end
+		return system_name
 end
 
 return M -- module table
