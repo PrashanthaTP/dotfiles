@@ -20,8 +20,11 @@ for _, lsp in ipairs(servers) do
 end
 --]]
 vim.lsp.set_log_level("debug")
-require("plugins.nvim-lspconfig.servers.cssls").setup(on_attach,capabilities)
-require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach,capabilities)
---require("plugins.nvim-lspconfig.servers.efm").setup(on_attach,capabilities)
-require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
-require("plugins.nvim-lspconfig.servers.tsserver").setup(on_attach,capabilities)
+require("plugins.nvim-lspconfig.servers.pyright").setup(on_attach, capabilities)
+require("plugins.nvim-lspconfig.servers.clangd").setup(on_attach, capabilities)
+require("plugins.nvim-lspconfig.servers.cmake").setup(on_attach, capabilities)
+require("plugins.nvim-lspconfig.servers.cssls").setup(on_attach, capabilities)
+require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach, capabilities)
+require("plugins.nvim-lspconfig.servers.tsserver").setup(on_attach, capabilities)
+require("plugins.nvim-lspconfig.servers.efm").setup(on_attach, capabilities)
+--require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
