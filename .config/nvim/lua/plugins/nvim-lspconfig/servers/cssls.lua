@@ -16,7 +16,7 @@ M.setup = function(on_attach, capabilities)
     on_attach = on_attach,
     --root_dir = root_pattern("package.json", ".git") or bufdir,
     --https://stackoverflow.com/questions/64868071/i-cannot-activate-nvims-built-in-lsps-for-javascript-and-html
-    root_dir = lspconfig.util.root_pattern(".git", "package.json") or vim.loop.cwd,
+    root_dir = lspconfig.util.root_pattern(".git", "package.json") or vim.loop.cwd(),
     settings = {
       css = {
         validate = true,

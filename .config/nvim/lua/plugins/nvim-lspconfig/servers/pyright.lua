@@ -7,7 +7,7 @@ M.setup = function(on_attach, capabilities)
     on_attach = on_attach,
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")
-      or vim.loop.cwd,
+      or vim.loop.cwd(),
     single_file_support = true,
   })
 end

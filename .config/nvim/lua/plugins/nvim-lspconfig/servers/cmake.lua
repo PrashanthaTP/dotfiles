@@ -10,7 +10,7 @@ M.setup = function(on_attach, capabilities)
     init_options = {
       buildDirectory = "build",
     },
-    root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json", "build/") or vim.loop.cwd,
+    root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json", "build/") or vim.loop.cwd(),
     single_file_support = true,
   })
 end
