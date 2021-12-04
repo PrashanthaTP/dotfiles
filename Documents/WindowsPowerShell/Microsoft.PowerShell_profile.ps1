@@ -1,3 +1,7 @@
+##############################################################################
+# THEME Settings
+##############################################################################
+
 # Import-Module posh-git
 # Import-Module oh-my-posh
 # Set-PoshPrompt -Theme paradox
@@ -9,16 +13,115 @@
 Invoke-Expression (oh-my-posh --init --shell pwsh --config "C://Users//Prashanth T P//Documents//WindowsPowerShell//negligible_custom.omp.json")
 
 
+##############################################################################
+# Path
+##############################################################################
+# add clangd to path
+$env:path+=';D:\Applications\Clangd\clangd_12.0.1\bin'
+#add ripgrep to path :
+#https://github.com/BurntSushi/ripgrep
+$env:path+=';D:\Applications\Unix\ripgrep-13.0.0-x86_64-pc-windows-gnu'
+#add bat program
+#https://github.com/sharkdp/bat#using-bat-on-windows
+$env:path+=';D:\Applications\Unix\bat-v0.18.3-x86_64-pc-windows-gnu\bat-v0.18.3-x86_64-pc-windows-gnu'
+
+#LLVM (Clang)
+$env:path+=';D:\Applications\CPP\LLVM\bin'
+##############################################################################
+# Environment variables
+##############################################################################
 $env:LC_ALL='C.UTF-8'
-#$env:TERM='xterm-256color'
+$env:TERM='xterm-256color'
+
+$wtsettings = (Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Filter settings.json).FullName
+
+$env:GVIMINIT='let $MYGVIMRC=has("nvim")?$MYGVIMRC:"$HOME/.config/vim/vimrc" | source $MYGVIMRC'
+
+#export VIMINIT='let $MYVIMRC=has("nvim")?$MYVIMRC:"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+#$env:VIMINIT='let $MYVIMRC=has("nvim")?"$LOCALAPPDATA/nvim/init.vim":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+$env:VIMINIT='let $MYVIMRC=has("nvim")?"$HOME/.config/nvim/init.lua":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+$env:DEV_DIR='E:/Users/VS_Code_Workspace'
+
+$env:NVIM_CONFIG=$env:LOCALAPPDATA+'/nvim'
+
+##############################################################################
+# Aliases
+##############################################################################
 function configfiles_fn{
 	git --git-dir=D:/dotfiles/dotfiles --work-tree=$HOME $args
 	}
+
+function wikifiles_fn{
+	git --git-dir=D:/dotfiles/wiki/vimwiki/.git --work-tree=D:/dotfiles/wiki/vimwiki $args
+	}
+
 set-alias -name configfiles -value configfiles_fn
-##########################################################################
+set-alias -name wikifiles -value wikifiles_fn
+function cd_proj_dir{
+		cd $env:PROJ_DIR
+	}
+set-alias -name cdp -value cd_proj_dir
+
+<#
+# TRUE colors with COLORTERM option for bat
+# Discussions related to True colors
+# - https://github.com/junegunn/fzf.vim/issues/1179
+# - https://github.com/macvim-dev/macvim/issues/1177
+# - https://github.com/sharkdp/bat/issues/634
+##>
+$env:FZF_DEFAULT_COMMAND = 'COLORTERM=truecolor rg --files --hidden --follow --ignore-vcs'
+
+$env:FZF_DEFAULT_OPTS='--height 40% --layout=reverse  --ansi --border --preview "bat --color=always {1}"'
+
+function open_wiki{
+    $local:cmd="C:/Program Files/Git/usr/bin/find.exe" 
+    $local:dir="D:/dotfiles/wiki"
+    
+        nvim $(& $cmd $dir -type f -name '\*.md' -not -path '\*/.git/\*'| fzf)
+    }
+function nvp{
+    nvim $PROFILE
+}
+###########################################################
+# FZY
+#set-alias -name fzy -value $env:ProgramFiles/Git/usr/bin/fzy.exe
+#$env:path+=';D:\Applications\FZF\fzy\usr\bin' # added to system env variables
+set-alias -name which -value $env:ProgramFiles/Git/usr/bin/which.exe
+
+
+#########################################
+# Git Bin Utilities
+# ######################################
+
+function run_git_utility{
+        param($exe_name,$exe_args)
+        Write-Host Running "$exe_name $exe_args"
+        $local:git_bin="C:/Program Files/Git/usr/bin"
+		& "$git_bin/$exe_name.exe" $exe_args
+}
+
+function vim{
+    run_git_utility "vim" $Args
+}
+
+function lsg{
+	run_git_utility "ls" $args
+}
+
+function head{
+	run_git_utility "head" $args
+}
+
+function grep{
+	run_git_utility "grep" $args
+}
+#set-alias -name vim -value open_vim
+#set-alias -name lsb -value bash_ls
+
+##############################################################################
 # vi mode
 # https://docs.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-5.1
-#
+##############################################################################
 $PSReadLineOptions = @{
     EditMode = "Vi"
     HistoryNoDuplicates = $true
@@ -109,17 +212,4 @@ function replaceWithExit {
 }
 #Set-PSReadLineKeyHandler -Chord ";" -ScriptBlock { mapTwoLetterFunc ';' 'q' -func $function:replaceWithExit }
 
-############################################
-function wikifiles_fn{
-	git --git-dir=D:/dotfiles/wiki/vimwiki/.git --work-tree=D:/dotfiles/wiki/vimwiki $args
-	}
-
-set-alias -name wikifiles -value wikifiles_fn
-############################################
-# Windows terminal settings
-$wtsettings = (Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState" -Filter settings.json).FullName
-
-$env:GVIMINIT='let $MYGVIMRC=has("nvim")?$MYGVIMRC:"$HOME/.config/vim/vimrc" | source $MYGVIMRC'
-
-#export VIMINIT='let $MYVIMRC=has("nvim")?$MYVIMRC:"$HOME/.config/vim/vimrc" | source $MYVIMRC'
-$env:VIMINIT='let $MYVIMRC=has("nvim")?"$LOCALAPPDATA/nvim/init.vim":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+##############################################################################

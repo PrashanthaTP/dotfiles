@@ -4,7 +4,7 @@ let s:PLUGIN_DIR = s:NVIM."/nvim/plugged"
 call plug#begin(s:PLUGIN_DIR)
 	"https://github.com/junegunn/vim-plug#plug-options
 	Plug 'morhetz/gruvbox'
-	"Plug 'sainnhe/gruvbox-material'
+	Plug 'sainnhe/gruvbox-material'
 	" NERD tree will be loaded on the first invocation of NERDTreeToggle command"
 	Plug 'preservim/nerdtree',{ 'on': 'NERDTreeToggle'}
 	"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -19,11 +19,11 @@ call plug#begin(s:PLUGIN_DIR)
 	Plug 'honza/vim-snippets'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	"Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	"Plug 'w0rp/ale'
-	"Plug 'sheerun/vim-polyglot'
+	Plug 'sheerun/vim-polyglot'
 	Plug 'itchyny/lightline.vim'
 	"Plug 'preservim/nerdcommenter'
 	Plug 'tpope/vim-surround'
