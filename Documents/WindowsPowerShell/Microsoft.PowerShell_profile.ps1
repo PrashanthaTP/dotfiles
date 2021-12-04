@@ -61,7 +61,16 @@ function cd_proj_dir{
 		cd $env:PROJ_DIR
 	}
 set-alias -name cdp -value cd_proj_dir
-$env:FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --no-ignore-vcs'
+
+<#
+# TRUE colors with COLORTERM option for bat
+# Discussions related to True colors
+# - https://github.com/junegunn/fzf.vim/issues/1179
+# - https://github.com/macvim-dev/macvim/issues/1177
+# - https://github.com/sharkdp/bat/issues/634
+##>
+$env:FZF_DEFAULT_COMMAND = 'COLORTERM=truecolor rg --files --hidden --follow --ignore-vcs'
+
 $env:FZF_DEFAULT_OPTS='--height 40% --layout=reverse  --ansi --border --preview "bat --color=always {1}"'
 
 function open_wiki{
@@ -70,6 +79,9 @@ function open_wiki{
     
         nvim $(& $cmd $dir -type f -name '\*.md' -not -path '\*/.git/\*'| fzf)
     }
+function nvp{
+    nvim $PROFILE
+}
 ###########################################################
 # FZY
 #set-alias -name fzy -value $env:ProgramFiles/Git/usr/bin/fzy.exe
@@ -94,6 +106,10 @@ function vim{
 
 function lsg{
 	run_git_utility "ls" $args
+}
+
+function head{
+	run_git_utility "head" $args
 }
 
 function grep{
