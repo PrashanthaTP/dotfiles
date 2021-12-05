@@ -26,8 +26,8 @@
 	lg = log --oneline --decorate
 	st = status
 [color]
-    branch = always
-    diff = always
-    interactive = always
-    status = always
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
 	ui = auto
