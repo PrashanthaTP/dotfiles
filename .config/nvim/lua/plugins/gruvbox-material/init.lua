@@ -15,7 +15,26 @@ if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-"let g:gruvbox_contrast_dark = 'hard'
-doautocmd User LoadGruvbox
+"doautocmd User LoadGruvbox
 
+]])
+vim.g.gruvbox_contrast_dark = "medium"
+vim.g.gruvbox_material_enable_bold = 1
+vim.g.gruvbox_material_enable_italic = 1
+vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
+vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_transparent_background = 1
+vim.cmd([[colorscheme gruvbox-material ]])
+vim.cmd([[hi! Normal ctermbg=NONE guibg=NONE cterm=NONE gui=NONE]])
+--vim.cmd([[hi! NonText ctermbg=NONE guibg=NONE cterm=NONE gui=NONE]])
+
+--vim.cmd([[colorscheme gruvbox-material]])
+--require('plugins.syntax.gruvbox')
+
+vim.cmd([[
+"highlight! LspDiagnosticsVirtualTextHint guifg=#FF0000 ctermfg=Red
+highlight! LspDiagnosticsVirtualTextWarning guifg=Red ctermfg=Red
+highlight! LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
+highlight! LspDiagnosticsDefaultWarning guifg=#FF0000 ctermfg=Red
+highlight! LspDiagnosticsDefaultError guifg=#FF0000 ctermfg=Red
 ]])
