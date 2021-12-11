@@ -13,12 +13,13 @@ nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprev<CR>
 nnoremap <leader>b :buffers<CR>
 nnoremap <leader>r :call v:lua.save_and_exec()<CR>
+
 " splits ----- {{{
 "nnoremap <leader>w <C-W>w "removed to support vimwiki
-nnoremap <leader>h <C-W>h
-nnoremap <leader>l <C-W>l
-nnoremap <leader>j <C-W>j
-nnoremap <leader>k <C-W>k
+"nnoremap <leader>h <C-W>h
+"nnoremap <leader>l <C-W>l
+"nnoremap <leader>j <C-W>j
+"nnoremap <leader>k <C-W>k
 "
 nnoremap <silent> <Leader>r= <C-w>=<CR>
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
