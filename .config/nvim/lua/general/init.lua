@@ -21,3 +21,5 @@ require("general.settings")
 require("general.leader")
 
 require("general.keymappings")
+
+require("general.lists")
