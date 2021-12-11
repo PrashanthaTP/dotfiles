@@ -28,3 +28,15 @@ require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach, capabilit
 require("plugins.nvim-lspconfig.servers.tsserver").setup(on_attach, capabilities)
 require("plugins.nvim-lspconfig.servers.efm").setup(on_attach, capabilities)
 --require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
+--
+function _G.updateLocationList()
+  vim.lsp.diagnostic.set_loclist({ open_loclist = false })
+end
+
+---reference : https://rafaelleru.github.io/blog/quickfix-autocomands/
+vim.cmd([[
+    augroup UPDATE_LOCATION_LIST_WITH_LSP_LINTS
+    autocmd!
+    autocmd! User LspDiagnosticsChanged :call v:lua.updateLocationList()
+    augroup END
+]])
