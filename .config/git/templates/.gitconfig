@@ -1,0 +1,33 @@
+[core]
+	editor = "vim"
+	autocrlf = true
+	whitespace = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+[http]
+	postBuffer = 157286400
+[https]
+	postBuffer = 524288000
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[difftool]
+    prompt = true
+	prompt = false
+[diff]
+    tool = vimdiff
+[difftool "vimdiff"]
+    cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
+[commit]
+	template = ~/.gitmessage
+[merge]
+	conflictstyle = diff3
+[alias]
+	lg = log --oneline --decorate
+	st = status
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+	ui = auto
