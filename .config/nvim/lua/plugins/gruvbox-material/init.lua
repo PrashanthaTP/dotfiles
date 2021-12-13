@@ -26,15 +26,15 @@ vim.g.gruvbox_material_better_performance = 1
 vim.g.gruvbox_material_transparent_background = 1
 vim.cmd([[colorscheme gruvbox-material ]])
 vim.cmd([[hi! Normal ctermbg=NONE guibg=NONE cterm=NONE gui=NONE]])
---vim.cmd([[hi! NonText ctermbg=NONE guibg=NONE cterm=NONE gui=NONE]])
+-- vim.cmd([[hi! NonText ctermbg=NONE guibg=NONE cterm=NONE gui=NONE]])
 
---vim.cmd([[colorscheme gruvbox-material]])
---require('plugins.syntax.gruvbox')
+-- vim.cmd([[colorscheme gruvbox-material]])
+-- require('plugins.syntax.gruvbox')
 
 vim.cmd([[
-"highlight! LspDiagnosticsVirtualTextHint guifg=#FF0000 ctermfg=Red
-highlight! LspDiagnosticsVirtualTextWarning guifg=Red ctermfg=Red
-highlight! LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
-highlight! LspDiagnosticsDefaultWarning guifg=#FF0000 ctermfg=Red
-highlight! LspDiagnosticsDefaultError guifg=#FF0000 ctermfg=Red
+"highlight! DiagnosticVirtualTextHint guifg=#FF0000 ctermfg=Red
+highlight! DiagnosticVirtualTextWarning guifg=Red ctermfg=Red
+highlight! DiagnosticVirtualTextError guifg=Red ctermfg=Red
+highlight! DiagnosticSignWarn guifg=#FF0000 ctermfg=Red
+highlight! DiagnosticSignError guifg=#FF0000 ctermfg=Red
 ]])
