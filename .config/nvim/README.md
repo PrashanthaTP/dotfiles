@@ -1,30 +1,29 @@
 # Neovim Config
 
-> Requires [Neovim Version 0.5.1](https://github.com/neovim/neovim/releases/tag/v0.5.1)
+> Requires [Neovim Version 0.6.0](https://github.com/neovim/neovim/releases/tag/v0.6.0)
 
-> ✓ ➜ nvim --version
-> NVIM v0.5.1
-> Build type: RelWithDebInfo
-> LuaJIT 2.1.0-beta3
-> Compilation: C:/Program Files (x86)/Microsoft Visual
-> Studio/2017/Enterprise/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x64/cl.exe
-> /DWIN32 /D_WINDOWS /W3 -DNVIM_TS_HAS_SET_MATCH_LIMIT /MD /Zi /O2 /Ob1
-> /DNDEBUG /W3 -D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE -DWIN32
-> -D_WIN32_WINNT=0x0600 -DINCLUDE_GENERATED_DECLARATIONS
-> -DNVIM_MSGPACK_HAS_FLOAT32 -DNVIM_UNIBI_HAS_VAR_FROM -DMIN_LOG_LEVEL=3
-> -ID:/a/neovim/neovim/build/config -ID:/a/neovim/neovim/src
-> -ID:/a/neovim/neovim/nvim-deps/usr/include
-> -ID:/a/neovim/neovim/build/src/nvim/auto -ID:/a/neovim/neovim/build/include
-> Compiled by runneradmin@fv-az152-633
+> **Remember to update plugins**
+> Requires update for nvim-telescope,nvim-lspconfig,nvim-cmp,nvim-lualine.
 >
-> Features: -acl +iconv +tui
-> See ":help feature-compile"
->
->  system vimrc file: "$VIM\sysinit.vim"
->  fall-back for $VIM: "C:/Program Files/nvim/share/nvim"
->
-> Run :checkhealth for more info
+> nvim-telescope last commit to support Neovim 0.5.1 : * (HEAD detached at [80cdb00](https://github.com/nvim-telescope/telescope.nvim/commit/80cdb00))
+> 
 
+```bash
+$ nvim --version
+
+NVIM v0.6.0
+Build type: RelWithDebInfo
+LuaJIT 2.1.0-beta3
+Compiled by runneradmin@fv-az152-703
+
+Features: -acl +iconv +tui
+See ":help feature-compile"
+
+  system vimrc file: "$VIM\sysinit.vim"
+  fall-back for $VIM: "C:/Program Files/nvim/share/nvim"
+
+Run :checkhealth for more info
+```
 ## Help
 
 ### Lua
