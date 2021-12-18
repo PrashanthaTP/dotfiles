@@ -2,12 +2,12 @@ local nvim_lsp = require("lspconfig")
 local utils = require("plugins.nvim-lspconfig.utils")
 local on_attach = utils.on_attach
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "clangd", "cmake", "tsserver", "cssls", "sumneko_lua" }
-
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
+local servers = {
+  "pyright", "clangd", "cmake", "tsserver", "cssls", "sumneko_lua"
+}
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp
+                                                                     .protocol
+                                                                     .make_client_capabilities())
 --[[
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -19,24 +19,43 @@ for _, lsp in ipairs(servers) do
 	})
 end
 --]]
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
+--------------------------------------------------------------------------------
+-- Import servers configurations
+--------------------------------------------------------------------------------
 require("plugins.nvim-lspconfig.servers.pyright").setup(on_attach, capabilities)
 require("plugins.nvim-lspconfig.servers.clangd").setup(on_attach, capabilities)
 require("plugins.nvim-lspconfig.servers.cmake").setup(on_attach, capabilities)
 require("plugins.nvim-lspconfig.servers.cssls").setup(on_attach, capabilities)
-require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach, capabilities)
+require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach,
+                                                            capabilities)
 require("plugins.nvim-lspconfig.servers.tsserver").setup(on_attach, capabilities)
 require("plugins.nvim-lspconfig.servers.efm").setup(on_attach, capabilities)
 --require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
 --
+
+--------------------------------------------------------------------------------
+-- Update location list with LSP Diagnostics
+--------------------------------------------------------------------------------
+---reference : https://rafaelleru.github.io/blog/quickfix-autocomands/
+--- reference for autocmd : https://github.com/neovim/neovim/issues/14090#issuecomment-979424077
 function _G.updateLocationList()
-  vim.lsp.diagnostic.set_loclist({ open_loclist = false })
+  vim.lsp.diagnostic.set_loclist({open_loclist = false})
 end
 
----reference : https://rafaelleru.github.io/blog/quickfix-autocomands/
 vim.cmd([[
     augroup UPDATE_LOCATION_LIST_WITH_LSP_LINTS
     autocmd!
-    autocmd! User LspDiagnosticsChanged :call v:lua.updateLocationList()
+    autocmd! DiagnosticChanged :call v:lua.updateLocationList()
     augroup END
+]])
+
+--------------------------------------------------------------------------------
+-- Highlight groups for LSP virtual texts
+-- Nvim 0.6.0 and up
+--------------------------------------------------------------------------------
+vim.cmd([[
+"highlight! DiagnosticVirtualTextHint guifg=#FF0000 ctermfg=Red
+highlight! DiagnosticVirtualTextWarning guifg=Red ctermfg=Red
+highlight! DiagnosticVirtualTextError guifg=Red ctermfg=Red
 ]])
