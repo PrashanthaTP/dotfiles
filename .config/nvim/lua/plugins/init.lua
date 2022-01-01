@@ -38,8 +38,11 @@ Plug("hrsh7th/cmp-vsnip")
 Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
 Plug("nvim-lualine/lualine.nvim")
 Plug("nvim-telescope/telescope.nvim")
+
 Plug("kyazdani42/nvim-web-devicons") -- load at the end : for lua plugins
 Plug("ryanoasis/vim-devicons") -- for vim plugins
+
+Plug("mhartington/formatter.nvim")
 
 vim.call("plug#end")
 
@@ -51,6 +54,8 @@ require("plugins.vim-vsnip")
 require("plugins.lualine")
 require("plugins.nvim-treesitter")
 require("plugins.nvim-telescope")
+require("plugins.formatter")
+
 -- require("plugins.gruvbox-material")
 -- require("plugins.vim-colors-solarized")
 require("plugins.flattened")

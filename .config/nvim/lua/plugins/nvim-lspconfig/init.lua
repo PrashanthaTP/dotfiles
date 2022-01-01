@@ -30,8 +30,8 @@ require("plugins.nvim-lspconfig.servers.cssls").setup(on_attach, capabilities)
 require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach,
                                                             capabilities)
 require("plugins.nvim-lspconfig.servers.tsserver").setup(on_attach, capabilities)
-require("plugins.nvim-lspconfig.servers.efm").setup(on_attach, capabilities)
---require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
+-- require("plugins.nvim-lspconfig.servers.efm").setup(on_attach, capabilities)
+-- require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
 --
 
 --------------------------------------------------------------------------------
