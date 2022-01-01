@@ -8,6 +8,7 @@ vim.call("plug#begin", PLUGINS_DIR)
 -- Plug("romainl/flattened")
 Plug("lifepillar/vim-solarized8")
 Plug("preservim/nerdtree", {on = {"NERDTreeToggle", "NERDTreeFind"}})
+Plug("Xuyuanp/nerdtree-git-plugin")
 -- Plug("sbdchd/neoformat")
 --[===[  Plug ('prettier/vim-prettier', 
          {  ['do']= 'yarn install', ['for']= {'python',
