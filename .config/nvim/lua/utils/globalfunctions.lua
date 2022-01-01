@@ -1,4 +1,4 @@
---https://sbulav.github.io/vim/neovim-telescope-github/
+-- https://sbulav.github.io/vim/neovim-telescope-github/
 function _G.save_and_exec()
   vim.cmd([[silent! write]])
   if vim.bo.filetype == "lua" then
@@ -14,7 +14,11 @@ function _G.save_and_exec()
 end
 
 local getLocListCount = function()
-  return vim.fn.getloclist(0, { size = 0 }).size --note size should not inside string
+  return vim.fn.getloclist(0, {size = 0}).size -- note size should not inside string
+end
+
+local getCurrLocListIdx = function()
+  return vim.fn.getloclist(0, {idx = 0}).idx -- note size should not inside string
 end
 
 function _G.performLocListNext()
@@ -31,17 +35,28 @@ function _G.performLocListNext()
   if llistCount == 1 then
     vim.cmd("lfirst")
   else
-    vim.cmd("lprev")
+    if (getCurrLocListIdx() == 1) then
+      vim.cmd("llast")
+    else
+      vim.cmd("lprev")
+    end
   end
 end
 
 function _G.navigateLocationList(direction)
   local llistCount = getLocListCount()
+
   if llistCount == 0 then
     print("No items in Location List")
   elseif llistCount == 1 then
     vim.cmd("lfirst")
   else
-    vim.cmd("l" .. direction)
+    if (getCurrLocListIdx() == 1) and (direction == "prev") then
+      vim.cmd("llast")
+    elseif (getCurrLocListIdx() == llistCount) and (direction == "next") then
+      vim.cmd("lfirst")
+    else
+      vim.cmd("l" .. direction)
+    end
   end
 end
