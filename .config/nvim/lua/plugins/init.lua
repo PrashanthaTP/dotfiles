@@ -44,6 +44,7 @@ Plug("kyazdani42/nvim-web-devicons") -- load at the end : for lua plugins
 Plug("ryanoasis/vim-devicons") -- for vim plugins
 
 Plug("mhartington/formatter.nvim")
+Plug("ellisonleao/glow.nvim")
 
 vim.call("plug#end")
 
@@ -56,6 +57,7 @@ require("plugins.lualine")
 require("plugins.nvim-treesitter")
 require("plugins.nvim-telescope")
 require("plugins.formatter")
+require("plugins.glow")
 
 -- Theme Related
 --

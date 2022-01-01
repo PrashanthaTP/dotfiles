@@ -15,3 +15,5 @@ LUA_LANG_SERVER_EXE = LANGUAGE_SERVERS_DIR ..
 
 LUA_LANG_SERVER_MAIN_LUA = LANGUAGE_SERVERS_DIR ..
                                "/lua-language-server/main.lua"
+
+GLOW_BINARY_PATH = "D:/Applications/Glow"
