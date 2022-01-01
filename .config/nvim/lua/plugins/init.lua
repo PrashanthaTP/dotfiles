@@ -5,8 +5,8 @@ local Plug = function(plugin, ...) vim.call("plug#", plugin, ...) end
 vim.call("plug#begin", PLUGINS_DIR)
 -- Plug("sainnhe/gruvbox-material")
 -- Plug("altercation/vim-colors-solarized")
-Plug("romainl/flattened")
--- Plug("lifepillar/vim-solarized8")
+-- Plug("romainl/flattened")
+Plug("lifepillar/vim-solarized8")
 Plug("preservim/nerdtree", {on = {"NERDTreeToggle", "NERDTreeFind"}})
 -- Plug("sbdchd/neoformat")
 --[===[  Plug ('prettier/vim-prettier', 
@@ -56,6 +56,9 @@ require("plugins.nvim-treesitter")
 require("plugins.nvim-telescope")
 require("plugins.formatter")
 
+-- Theme Related
+--
 -- require("plugins.gruvbox-material")
 -- require("plugins.vim-colors-solarized")
-require("plugins.flattened")
+-- require("plugins.flattened")
+require("plugins.vim-solarized8")
