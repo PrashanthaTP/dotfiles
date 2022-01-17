@@ -7,7 +7,10 @@ function echo_msg(){
 }
 echo_msg "Startup script running..."
 
+[[ $(tty) =~ /dev/cons* ]] && echo_msg "Not mintty ; Tmux cannot be launched."
+
 if command -v tmux &> /dev/null \
+           && [[ ! $(tty) =~ /dev/cons* ]] \
            && [ -n "$PS1" ] \
            && [[ ! "$TERM" =~ screen ]] \
            && [[ ! "$TERM" =~ tmux ]] \
@@ -17,6 +20,5 @@ if command -v tmux &> /dev/null \
   #-s : session name
  # tmux new-session -d -s "default";
   #exec tmux new-session -c "$HOME" -A -s default ;
-
   tmux new-session -c "$HOME" -A -s default ;
 fi
