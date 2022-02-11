@@ -29,6 +29,14 @@ My favourites
 - [Fira Code (free)](https://github.com/tonsky/FiraCode)
 - [Adobe Source Code Pro (free)](https://github.com/adobe-fonts/source-code-pro)
 
+## Tools Setup
+
+- [Windows port of GNU utitlities](https://packages.msys2.org/queue)
+  - such as `tmux` (terminal multiplexer),`tree` (display directory structure),
+    `fzy` etc
+- [fzf](https://github.com/junegunn/fzf) : fuzzy finder
+- [ripgrep](https://github.com/BurntSushi/ripgrep): seartch tool | grep faster
+- [bat](https://github.com/sharkdp/bat) : cat clone with wings
 
 ## Warnings ⚠
 
