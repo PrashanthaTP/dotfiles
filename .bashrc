@@ -3,6 +3,7 @@
 # │       BASHRC       │
 # └────────────────────┘
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+__start_time=$(date +%s)
 export TERM=xterm-256color
 VISUAL=vim
 EDITOR=vim
@@ -10,7 +11,8 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+#HISTCONTROL=ignoreboth
+HISTCONTROL=ignorespace:erasedups
 #############################################################################
 # ┌─────────────────────────────┐
 # │     ALIASES & FUNCTIONS     │
@@ -32,13 +34,18 @@ source "$HOME/.config/bash/.bash_functions"
 #fi
 
 #############################################################################
-# ┌────────────────────┐
-# │       PROMPT       │
-# └────────────────────┘
+# ┌────────────────────────────────────┐
+# │       Prompt and git related       │
+# └────────────────────────────────────┘
 # ref : https://gist.github.com/justintv/168835#gistcomment-2711710
 #############################################################################
+source_if_exists "$HOME/.config/git/git-completion.sh"
+
+source_if_exists "$HOME/.config/git/custom-bash-prompt.sh"
+source_if_exists "$HOME/.config/git/git-functions.sh"
+#source_if_exists "$HOME/Desktop/test.sh"
 #source_if_exists "$HOME/.config/git/minimal.sh"
-source_if_exists "$HOME/.config/git/git-prompt1.sh"
+#source_if_exists "$HOME/.config/git/git-prompt1.sh"
 #source_if_exists "$HOME/.config/git/minimal_fast_prompt.sh"
 #source_if_exists "$HOME/.config/git/powerlevel10k.sh"
 #source_if_exists "$HOME/.config/git/custom.sh"
@@ -55,4 +62,7 @@ source_if_exists "$HOME/.config/git/git-prompt1.sh"
 #############################################################################
 # Not so sure : putting it in seperate script makes detaching from tmux
 # session, results normal bash prompt
-source_if_exists "$HOME/.config/tmux/scripts/startup.sh"
+source_if_exists "$HOME/.config/tmux/scripts/startup.sh" --silent
+
+echo "✅ Bashrc Sourced. Took $(($(date +%s)-${__start_time})) seconds."
+unset __start_time
