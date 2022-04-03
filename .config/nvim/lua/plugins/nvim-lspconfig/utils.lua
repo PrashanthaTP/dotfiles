@@ -91,6 +91,15 @@ M.on_attach = function(client, bufnr)
     "ﬦ", -- Operator
     "" -- TypeParameter
   }
+    vim.lsp.handlers["textDocument/publishDiagnostics"] =
+        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            -- vim.lsp.with(vim.lsp.diagnostic.show_line_diagnostics, {
+           -- virtual_text = {spacing = 4, prefix = ""},
+            virtual_text = false,
+            signs = true,
+            underline = true,
+            update_in_insert = true
+        })
 end
 
 return M

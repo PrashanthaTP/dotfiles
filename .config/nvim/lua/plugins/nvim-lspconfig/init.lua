@@ -53,6 +53,9 @@ vim.cmd([[
 -- Highlight groups for LSP virtual texts
 -- Nvim 0.6.0 and up
 --------------------------------------------------------------------------------
+
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
 vim.cmd([[
 "highlight! DiagnosticVirtualTextHint guifg=#FF0000 ctermfg=Red
 highlight! DiagnosticVirtualTextWarning guifg=Red ctermfg=Red
