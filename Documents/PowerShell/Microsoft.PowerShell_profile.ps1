@@ -61,7 +61,14 @@ function wikifiles_fn{
 set-alias -name configfiles -value configfiles_fn
 set-alias -name wikifiles -value wikifiles_fn
 
-function cd_proj_dir{
+function get_gitignore{
+    echo "Running getignore.sh"
+    $local:cmd="C:/Program Files/Git/usr/bin/bash.exe --login --norc  -c "+"./$HOME/.config/scripts/getignore.sh"
+    & "$cmd"
+}
+set-alias -name getignore -value get_gitignore
+
+function cd_dev{
 		cd $env:PROJ_DIR
 	}
 set-alias -name cdpd -value cd_proj_dir
@@ -86,6 +93,16 @@ function cdp{
     #cd $(& "$cmd" --files --no-hidden --max-depth 3 --follow --no-ignore-vcs --glob "!{.git\,.svn\,.hg\,*.*}" --glob "!node_modules" "$dir"| fzf --no-preview)
 }
 
+function cclip {
+        $PWD.Path | clip
+        echo "✅ $($PWD.Path) copied to clipboard."
+    }
+
+function cdclip {
+    echo "Changing Directory to : $(Get-Clipboard)"
+    Set-Location (Get-Clipboard).Split("\n")[0]
+    }
+
 function nvp{
     nvim $PROFILE
 }
@@ -94,6 +111,10 @@ function svp{
     echo "✅ Powershell Profile (Re)loaded."
 }
 
+#function cdclip{
+#        $pwd.Path | clip
+#        echo "✅ Copied current working directory path to clipboard..."
+#    }
 ###########################################################
 # FZY
 #set-alias -name fzy -value $env:ProgramFiles/Git/usr/bin/fzy.exe
@@ -139,8 +160,14 @@ function treeg{
 function findg{
 	run_git_utility "find" $args
 }
+
+function touch{
+	run_git_utility "touch" $args
+}
 #set-alias -name vim -value open_vim
 #set-alias -name lsb -value bash_ls
+
+set-alias -name gmake -value mingw32-make.exe
 
 ##############################################################################
 # vi mode
