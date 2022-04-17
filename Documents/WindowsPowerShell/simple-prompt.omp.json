@@ -1,0 +1,85 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "newline"
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "powerline",
+          "foreground": "#00ff00",
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          }
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#83FF33",
+          "properties": {
+            "style": "agnoster_short"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          //"foreground": "lightYellow",
+          "foreground": "#3388FF",
+          "properties": {
+            "prefix": ":: <lightRed>git(</>",
+            "postfix": "<lightRed>)</>"
+            //"prefix": ":: <lightBlue>git(</>",
+            //"postfix": "<lightBlue>)</>"
+          }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "lightRed",
+          "properties": {
+            "display_virtual_env": true,
+            "display_version": true,
+            "prefix": " \uE235 ",
+            "postfix": " ",
+            "display_mode": "context"
+          }
+        }
+        //,
+        //{
+        //"type": "time",
+        //"style": "plain",
+        //"foreground": "lightGreen"
+        //}
+      ]
+    },
+
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "exit",
+          "style": "powerline",
+          "foreground": "lightGreen",
+          "properties": {
+            "display_exit_code": true,
+            "always_enabled": true,
+            "always_numeric": true,
+            "error_color": "red",
+            "success_color": "green",
+            "success_icon": "<#00FF00>\u2713</>",
+            "error_icon": "\u274c",
+            "postfix": " \u279c"
+          }
+        }
+      ]
+    }
+  ],
+  "final_space": true
+}

@@ -13,9 +13,15 @@
 
 !.config/vim
 !.config/vim/**
+.config/vim/after
+.config/vim/backup
+.config/vim/swap
 
 !.config/nvim
 !.config/nvim/**
+.config/nvim/after
+.config/nvim/backup
+.config/nvim/swap
 
 !.config/tmux
 !.config/tmux/**
@@ -31,6 +37,10 @@
 
 #tmux plugins
 .config/tmux/plugins
+
+#scripts
+!.config/scripts
+!.config/scripts/*
 
 # Bash stuff (profile just sources bashrc, since it's the only thing sourced
 # when a shell is a login shell).
@@ -59,3 +69,8 @@ view/
 !AppData/Local/nvim
 !AppData/Local/nvim/**
 
+# Powershell Profiles
+!Documents/
+!Documents/**
+!Documents/WindowsPowershell/*
+!Documents/Powershell/*

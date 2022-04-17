@@ -2,7 +2,10 @@
 
 > Requires [Neovim Version 0.6.0](https://github.com/neovim/neovim/releases/tag/v0.6.0)
 
+- Last commit to support [Neovim 0.5.1](https://github.com/neovim/neovim/releases/tag/v0.6.0jj) : [`714d03e4eb6014a4f7657db41ad89ef513579038`](https://github.com/PrashanthaTP/dotfiles/tree/714d03e4eb6014a4f7657db41ad89ef513579038)
+
 > **Remember to update plugins**
+>
 > Requires update for nvim-telescope,nvim-lspconfig,nvim-cmp,nvim-lualine.
 >
 > nvim-telescope last commit to support Neovim 0.5.1 : * (HEAD detached at [80cdb00](https://github.com/nvim-telescope/telescope.nvim/commit/80cdb00))

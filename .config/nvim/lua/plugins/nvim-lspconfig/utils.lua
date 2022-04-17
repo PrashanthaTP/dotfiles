@@ -11,7 +11,7 @@ M.set_keymappings = function(bufnr)
   buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  buf_set_keymap("n", t("<C-k>"), "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+  buf_set_keymap("n", t("<C-K>"), "<cmd>lua vim.lsp.buf.signature_help()<CR>",
                  opts)
   buf_set_keymap("n", t("<space>wa"),
                  "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
@@ -61,7 +61,7 @@ M.on_attach = function(client, bufnr)
         virtual_text = {spacing = 4, prefix = ""},
         signs = true,
         underline = true,
-        update_in_insert = false
+        update_in_insert = true
       })
   -- protocol.SymbolKind = { }
   vim.lsp.protocol.completionItemKind = {
@@ -91,6 +91,15 @@ M.on_attach = function(client, bufnr)
     "ﬦ", -- Operator
     "" -- TypeParameter
   }
+    vim.lsp.handlers["textDocument/publishDiagnostics"] =
+        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            -- vim.lsp.with(vim.lsp.diagnostic.show_line_diagnostics, {
+           -- virtual_text = {spacing = 4, prefix = ""},
+            virtual_text = false,
+            signs = true,
+            underline = true,
+            update_in_insert = true
+        })
 end
 
 return M

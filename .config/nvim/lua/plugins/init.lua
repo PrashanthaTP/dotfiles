@@ -5,9 +5,10 @@ local Plug = function(plugin, ...) vim.call("plug#", plugin, ...) end
 vim.call("plug#begin", PLUGINS_DIR)
 -- Plug("sainnhe/gruvbox-material")
 -- Plug("altercation/vim-colors-solarized")
-Plug("romainl/flattened")
--- Plug("lifepillar/vim-solarized8")
+-- Plug("romainl/flattened")
+Plug("lifepillar/vim-solarized8")
 Plug("preservim/nerdtree", {on = {"NERDTreeToggle", "NERDTreeFind"}})
+Plug("Xuyuanp/nerdtree-git-plugin")
 -- Plug("sbdchd/neoformat")
 --[===[  Plug ('prettier/vim-prettier', 
          {  ['do']= 'yarn install', ['for']= {'python',
@@ -38,8 +39,12 @@ Plug("hrsh7th/cmp-vsnip")
 Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
 Plug("nvim-lualine/lualine.nvim")
 Plug("nvim-telescope/telescope.nvim")
+
 Plug("kyazdani42/nvim-web-devicons") -- load at the end : for lua plugins
 Plug("ryanoasis/vim-devicons") -- for vim plugins
+
+Plug("mhartington/formatter.nvim")
+Plug("ellisonleao/glow.nvim")
 
 vim.call("plug#end")
 
@@ -51,6 +56,12 @@ require("plugins.vim-vsnip")
 require("plugins.lualine")
 require("plugins.nvim-treesitter")
 require("plugins.nvim-telescope")
+require("plugins.formatter")
+require("plugins.glow")
+
+-- Theme Related
+--
 -- require("plugins.gruvbox-material")
 -- require("plugins.vim-colors-solarized")
-require("plugins.flattened")
+-- require("plugins.flattened")
+require("plugins.vim-solarized8")

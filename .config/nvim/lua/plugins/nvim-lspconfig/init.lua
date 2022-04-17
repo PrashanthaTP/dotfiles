@@ -30,8 +30,8 @@ require("plugins.nvim-lspconfig.servers.cssls").setup(on_attach, capabilities)
 require("plugins.nvim-lspconfig.servers.sumneko_lua").setup(on_attach,
                                                             capabilities)
 require("plugins.nvim-lspconfig.servers.tsserver").setup(on_attach, capabilities)
-require("plugins.nvim-lspconfig.servers.efm").setup(on_attach, capabilities)
---require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
+-- require("plugins.nvim-lspconfig.servers.efm").setup(on_attach, capabilities)
+-- require("plugins.nvim-lspconfig.servers.diagnosticls").setup(on_attach,capabilities)
 --
 
 --------------------------------------------------------------------------------
@@ -39,14 +39,13 @@ require("plugins.nvim-lspconfig.servers.efm").setup(on_attach, capabilities)
 --------------------------------------------------------------------------------
 ---reference : https://rafaelleru.github.io/blog/quickfix-autocomands/
 --- reference for autocmd : https://github.com/neovim/neovim/issues/14090#issuecomment-979424077
-function _G.updateLocationList()
-  vim.lsp.diagnostic.set_loclist({open_loclist = false})
-end
+function _G.updateLocationList() vim.diagnostic.setloclist({open = false}) end
 
 vim.cmd([[
     augroup UPDATE_LOCATION_LIST_WITH_LSP_LINTS
     autocmd!
-    autocmd! DiagnosticChanged :call v:lua.updateLocationList()
+    autocmd! DiagnosticChanged * :call v:lua.updateLocationList()
+	"autocmd! DiagnosticChanged * lua vim.diagnostic.setqflist({open = false })
     augroup END
 ]])
 
@@ -54,6 +53,9 @@ vim.cmd([[
 -- Highlight groups for LSP virtual texts
 -- Nvim 0.6.0 and up
 --------------------------------------------------------------------------------
+
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
 vim.cmd([[
 "highlight! DiagnosticVirtualTextHint guifg=#FF0000 ctermfg=Red
 highlight! DiagnosticVirtualTextWarning guifg=Red ctermfg=Red
