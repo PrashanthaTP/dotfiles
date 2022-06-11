@@ -11,18 +11,21 @@
 
 !.config
 
+# Vim
 !.config/vim
 !.config/vim/**
 .config/vim/after
 .config/vim/backup
 .config/vim/swap
 
+# Neovim
 !.config/nvim
 !.config/nvim/**
 .config/nvim/after
 .config/nvim/backup
 .config/nvim/swap
 
+# Tmux
 !.config/tmux
 !.config/tmux/**
 
@@ -40,7 +43,7 @@
 
 #scripts
 !.config/scripts
-!.config/scripts/*
+!.config/scripts/**
 
 # Bash stuff (profile just sources bashrc, since it's the only thing sourced
 # when a shell is a login shell).
