@@ -21,8 +21,11 @@ gb() {
 
 cdc(){
     # vim into config files
-    local selected="$(ls ~/.config/**/*.sh | echo -e "$(cat -)\n$HOME/.config/bash/.bash_functions\n$HOME/.config/bash/.bash_aliases" | fzy)"
-    [[ ! -z "$selected" ]] && vim "$selected"
+    local selected="$(ls ~/.config/**/*.sh \
+                     | echo -e "$(cat -)\n$HOME/.config/bash/.bash_functions\n$HOME/.config/bash/.bash_aliases\n$HOME/.bashrc\n$HOME/.bash_profile\n$HOME/.inputrc" | fzy)"
+    if [[ ! -z "$selected" ]];then
+        [[ -x "$(which nvim)" ]] && nvim "$selected" || vim "$selected"
+    fi
 }
 cprompt(){
     # change bash prompt
