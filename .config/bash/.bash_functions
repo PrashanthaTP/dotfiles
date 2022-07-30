@@ -33,3 +33,14 @@ cprompt(){
     echo $selected
 }
 
+command_not_found_handle(){
+    local filename="$1"
+    if [[ -f "$HOME/.config/scripts/${filename}.sh" ]] ;then
+        shift
+        echo "Running $HOME/.config/scripts/${filename}.sh"
+        "$HOME/.config/scripts/${filename}.sh"  "$@"
+    fi
+    echo "bash: $1: command not found"
+    return 127
+
+}
