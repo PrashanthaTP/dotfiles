@@ -29,6 +29,10 @@
 !.config/tmux
 !.config/tmux/**
 
+# ZSH
+!.config/zsh
+!.config/zsh/**
+
 !.config/git
 !.config/git/**
 
