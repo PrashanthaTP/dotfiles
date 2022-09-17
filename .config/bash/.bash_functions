@@ -44,3 +44,18 @@ command_not_found_handle(){
     return 127
 
 }
+srcf(){
+    # Source selected file
+    # Useful to load a single file 
+    # instead of sourcing whole bashrc
+    local selected="$(ls ~/.config/**/*.sh \
+                     | echo -e "$(cat -)\n$HOME/.config/bash/.bash_functions\n$HOME/.config/bash/.bash_aliases\n$HOME/.bashrc\n$HOME/.bash_profile\n$HOME/.inputrc" | fzy)"
+    if [[  -z "$selected" ]];then
+        return 0
+    fi
+    local start_time=$(date +"%s")
+    . "${selected}"
+    echo -e "\e[2;34mReloaded $selected\e[0m"
+    echo -e "\e[2;33mTook $(($(date +"%s")-start_time)) second(s)\e[0m"
+}
+
