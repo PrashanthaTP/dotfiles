@@ -29,3 +29,5 @@ export DIARY_DIR="/D/Studies/diary"
 export VIMINIT='let $MYVIMRC=has("nvim")?"$HOME/.config/nvim-0.7.0/init.lua":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
 
 export WT_SETTINGS="$HOME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+
+export MANPATH="$MANPATH:/d/Applications/Git Cli/git-manpages-2.37.1.tar"
