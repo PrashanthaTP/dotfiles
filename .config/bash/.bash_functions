@@ -59,3 +59,9 @@ srcf(){
     echo -e "\e[2;33mTook $(($(date +"%s")-start_time)) second(s)\e[0m"
 }
 
+
+learn(){
+    local selected=$(ls -d /d/Studies/Programming/Learn* | fzy)
+    echo "Changing Directory to $selected"
+    cd "$selected"
+}
