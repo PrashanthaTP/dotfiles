@@ -13,6 +13,9 @@ HISTFILESIZE=2000
 # See bash(1) for more options
 #HISTCONTROL=ignoreboth
 HISTCONTROL=ignorespace:erasedups
+
+set set show-all-if-ambiguous on
+set completion-ignore-case on
 #############################################################################
 # ┌─────────────────────────────┐
 # │     ALIASES & FUNCTIONS     │
