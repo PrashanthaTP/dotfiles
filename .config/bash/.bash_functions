@@ -1,5 +1,12 @@
 #!/bin/bash
 
+cd(){
+    builtin cd "$@"
+    if [ -n "${USE_CUSTOM_CD}" ] && [ -f ".activate.sh" ] && [ -z ${VIRTUAL_ENV} ];then
+        echo "Activating virtual environment"
+        grep "author: TP" -- .activate.sh &> /dev/null  && source .activate.sh
+    fi
+}
 source_if_exists(){
 	[ -f "$1" ] && source "$1" $2
 }

@@ -23,6 +23,7 @@ set completion-ignore-case on
 # must be sourced first
 #############################################################################
 source "$HOME/.config/bash/.bash_aliases"
+USE_CUSTOM_CD=1 #for activating python virtual environments on cd
 source "$HOME/.config/bash/.bash_functions"
 
 #############################################################################
