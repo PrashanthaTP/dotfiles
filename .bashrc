@@ -16,6 +16,7 @@ HISTCONTROL=ignorespace:erasedups
 
 set set show-all-if-ambiguous on
 set completion-ignore-case on
+shopt -s no_empty_cmd_completion
 #############################################################################
 # ┌─────────────────────────────┐
 # │     ALIASES & FUNCTIONS     │
