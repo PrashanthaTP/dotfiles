@@ -28,7 +28,7 @@ gb() {
 
 cdc(){
     # vim into config files
-    local selected="$(ls ~/.config/**/*.sh \
+    local selected="$($(which ls) ~/.config/**/*.sh \
                      | echo -e "$(cat -)\n$HOME/.config/bash/.bash_functions\n$HOME/.config/bash/.bash_aliases\n$HOME/.bashrc\n$HOME/.bash_profile\n$HOME/.inputrc" | fzy)"
     if [[ ! -z "$selected" ]];then
         [[ -x "$(which nvim)" ]] && nvim "$selected" || vim "$selected"
@@ -46,16 +46,17 @@ command_not_found_handle(){
         shift
         echo "Running $HOME/.config/scripts/${filename}.sh"
         "$HOME/.config/scripts/${filename}.sh"  "$@"
+    else
+        echo "bash: $1: command not found"
+        return 127
     fi
-    echo "bash: $1: command not found"
-    return 127
 
 }
 srcf(){
     # Source selected file
     # Useful to load a single file 
     # instead of sourcing whole bashrc
-    local selected="$(ls ~/.config/**/*.sh \
+    local selected="$($(which ls) ~/.config/**/*.sh \
                      | echo -e "$(cat -)\n$HOME/.config/bash/.bash_functions\n$HOME/.config/bash/.bash_aliases\n$HOME/.bashrc\n$HOME/.bash_profile\n$HOME/.inputrc" | fzy)"
     if [[  -z "$selected" ]];then
         return 0
