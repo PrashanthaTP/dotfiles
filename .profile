@@ -30,4 +30,4 @@ export VIMINIT='let $MYVIMRC=has("nvim")?"$HOME/.config/nvim-0.7.0/init.lua":"$H
 
 export WT_SETTINGS="$HOME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
-export MANPATH="$MANPATH:/d/Applications/Git Cli/git-manpages-2.37.1.tar"
+export MANPATH="$MANPATH:/d/Applications/Git Cli/git-manpages-2.37.1.tar:/d/Applications/Unix/manpages/man-pages-5.13:/d/Applications/Unix/manpages/man-pages-posix-2017-a.tar/man-pages-posix-2017"
