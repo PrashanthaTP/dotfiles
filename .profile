@@ -1,7 +1,4 @@
-export GVIMINIT='let $MYGVIMRC=has("nvim")?$MYGVIMRC:"$HOME/.config/vim/vimrc" | source $MYGVIMRC'
-#export VIMINIT='let $MYVIMRC=has("nvim")?$MYVIMRC:"$HOME/.config/vim/vimrc" | source $MYVIMRC'
-#export VIMINIT='let $MYVIMRC=has("nvim")?"$LOCALAPPDATA/nvim/init.vim":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
-export VIMINIT='let $MYVIMRC=has("nvim")?"$HOME/.config/nvim-0.7.0/init.lua":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+source ~/.config/vim.sh
 export ZDOTDIR=$HOME/.config/zsh
 export GOROOT="/d/Applications/Golang/installation"
 
@@ -26,7 +23,7 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export PROJ_DIR="/E/Users/VS_Code_Workspace/"
 export DIARY_DIR="/D/Studies/diary"
 
-export VIMINIT='let $MYVIMRC=has("nvim")?"$HOME/.config/nvim-0.7.0/init.lua":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
+#export VIMINIT='let $MYVIMRC=has("nvim")?"$HOME/.config/nvim-0.7.0/init.lua":"$HOME/.config/vim/vimrc" | source $MYVIMRC'
 
 export WT_SETTINGS="$HOME/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
 
