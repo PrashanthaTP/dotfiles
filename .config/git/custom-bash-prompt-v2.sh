@@ -67,7 +67,7 @@ __prompt_get_git_branch_v1(){
 __prompt_get_git_branch_v2(){
     local git_ref_name=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
     local git_commit_short=$(git rev-parse --short HEAD 2>/dev/null)
-    local possible_tag_names=$(git tag --points-at HEAD 2>/dev/null)
+    local possible_tag_names=($(git tag --points-at HEAD 2>/dev/null))
     local possible_tag_name=
     for tag in "${possible_tag_names[@]}";do
         possible_tag_name="${possible_tag_name}""$(color ${VS_BLUE_FG} 2)["'\033[2;37m'"${tag}"'\033[0m'"$(color ${VS_BLUE_FG} 2)]"'\033[0m'
@@ -79,9 +79,9 @@ __prompt_get_git_branch_v2(){
         then
             if [[ ! -z ${PROMPT_ENABLE_GLYPHS} ]];
             then
-                git_string+=" ${possible_tag_name} "
+                [ ${#possible_tag_names[@]} -gt 0 ] && git_string+=" ${possible_tag_name} "
             else
-                git_string+=" ${possible_tag_name} "
+                [ ${#possible_tag_names[@]} -gt 0 ] && git_string+=" ${possible_tag_name} "
             fi
         fi
         echo -n ":$(__prompt_is_bare_repo): "
@@ -96,7 +96,7 @@ __prompt_get_pwd(){
 }
 PS1="\n"
 PS1+="$(color ${VS_BLUE_FG})"
-[[ ! -z ${PROMPT_ENABLE_GLYPHS} ]] && echo -n " " || echo -n " "
+[[ ! -z ${PROMPT_ENABLE_GLYPHS} ]] && PS1+=" "
 PS1+="\w"
 PS1+="$(color ${RESET})"
 
