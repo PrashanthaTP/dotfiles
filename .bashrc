@@ -13,6 +13,10 @@ HISTFILESIZE=2000
 # See bash(1) for more options
 #HISTCONTROL=ignoreboth
 HISTCONTROL=ignorespace:erasedups
+
+set set show-all-if-ambiguous on
+set completion-ignore-case on
+shopt -s no_empty_cmd_completion
 #############################################################################
 # ┌─────────────────────────────┐
 # │     ALIASES & FUNCTIONS     │
@@ -20,6 +24,7 @@ HISTCONTROL=ignorespace:erasedups
 # must be sourced first
 #############################################################################
 source "$HOME/.config/bash/.bash_aliases"
+USE_CUSTOM_CD=1 #for activating python virtual environments on cd
 source "$HOME/.config/bash/.bash_functions"
 
 #############################################################################

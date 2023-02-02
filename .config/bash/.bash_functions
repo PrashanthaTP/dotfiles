@@ -1,5 +1,12 @@
 #!/bin/bash
 
+cd(){
+    builtin cd "$@"
+    if [ -n "${USE_CUSTOM_CD}" ] && [ -f ".activate.sh" ] && [ -z ${VIRTUAL_ENV} ];then
+        echo "Activating virtual environment"
+        grep "author: TP" -- .activate.sh &> /dev/null  && source .activate.sh
+    fi
+}
 source_if_exists(){
 	[ -f "$1" ] && source "$1" $2
 }
@@ -21,8 +28,11 @@ gb() {
 
 cdc(){
     # vim into config files
-    local selected="$(ls ~/.config/**/*.sh | echo -e "$(cat -)\n$HOME/.config/bash/.bash_functions\n$HOME/.config/bash/.bash_aliases" | fzy)"
-    [[ ! -z "$selected" ]] && vim "$selected"
+    local selected="$($(which ls) ~/.config/**/*.sh \
+                     | echo -e "$(cat -)\n$HOME/.config/bash/.bash_functions\n$HOME/.config/bash/.bash_aliases\n$HOME/.bashrc\n$HOME/.bash_profile\n$HOME/.inputrc" | fzy)"
+    if [[ ! -z "$selected" ]];then
+        [[ -x "$(which nvim)" ]] && nvim "$selected" || vim "$selected"
+    fi
 }
 cprompt(){
     # change bash prompt
@@ -30,3 +40,36 @@ cprompt(){
     echo $selected
 }
 
+command_not_found_handle(){
+    local filename="$1"
+    if [[ -f "$HOME/.config/scripts/${filename}.sh" ]] ;then
+        shift
+        echo "Running $HOME/.config/scripts/${filename}.sh"
+        "$HOME/.config/scripts/${filename}.sh"  "$@"
+    else
+        echo "bash: $1: command not found"
+        return 127
+    fi
+
+}
+srcf(){
+    # Source selected file
+    # Useful to load a single file 
+    # instead of sourcing whole bashrc
+    local selected="$($(which ls) ~/.config/**/*.sh \
+                     | echo -e "$(cat -)\n$HOME/.config/bash/.bash_functions\n$HOME/.config/bash/.bash_aliases\n$HOME/.bashrc\n$HOME/.bash_profile\n$HOME/.inputrc" | fzy)"
+    if [[  -z "$selected" ]];then
+        return 0
+    fi
+    local start_time=$(date +"%s")
+    . "${selected}"
+    echo -e "\e[2;34mReloaded $selected\e[0m"
+    echo -e "\e[2;33mTook $(($(date +"%s")-start_time)) second(s)\e[0m"
+}
+
+
+learn(){
+    local selected=$(ls -d /d/Studies/Programming/Learn* | fzy)
+    echo "Changing Directory to $selected"
+    cd "$selected"
+}
