@@ -94,6 +94,22 @@ __prompt_get_git_branch_v2(){
 __prompt_get_pwd(){
     echo -n "$(pwd)"
 }
+
+# disable the default virtualenv prompt change
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+__show_py_virtualenv(){
+if [[ -n "${VIRTUAL_ENV}" ]];then
+    local venv_name=$(color ${VS_BLUE_FG} 2)
+    venv_name+="( "
+    venv_name+="$(color ${VS_YELLOW_FG} 2)"
+    [[ -n "${PROMPT_ENABLE_GLYPHS}" ]] && venv_name+=" "
+    venv_name+="$(basename ${VIRTUAL_ENV})"
+    venv_name+=$(color ${VS_BLUE_FG} 2)
+    venv_name+=" ) "
+    echo -en "${venv_name}"
+fi
+
+}
 PS1="\n"
 PS1+="$(color ${VS_BLUE_FG})"
 [[ ! -z ${PROMPT_ENABLE_GLYPHS} ]] && PS1+=" "
@@ -102,6 +118,17 @@ PS1+="$(color ${RESET})"
 
 PS1+="$(color ${VS_YELLOW_FG}) \$(__prompt_get_git_branch_v2) $(color ${RESET})"
 PS1+=$'\n' #important to use $'\n'
+
+# python virtual environment info
+#echo $VIRTUAL_ENV
+
+PS1+="\$(__show_py_virtualenv)"
+#if [[ -n "${VIRTUAL_ENV}" ]];then
+    #PS1+="$(color ${VS_BLUE_FG})"
+    #PS1+="("
+    #[[ -n "${PROMPT_ENABLE_GLYPHS}" ]] && PS1+="  "
+    #PS1+="$(basename ${VIRTUAL_ENV}) )"
+#fi
 
 PS1+="\$ $(color ${VS_GREEN_V2_FG})"
 
